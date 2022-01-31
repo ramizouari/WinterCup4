@@ -4,7 +4,10 @@ Yessine was trying to log into his email when he realized that he forgot his pas
 A string **a** is a substring of a string **b** if **a** can be obtained from **b** by deletion of several (possibly, zero or all) characters from the beginning and several (possibly, zero or all) characters from the end.
 
 ## Input :
-The first and only line of the input contains a string **S** consisting of decimal digits  (2 <= |S| <= 10^6)
+The first line contains one integer **t (1≤t≤1000)** — the number of test cases. \
+The first line of each test case contains one integer **n (1≤n≤10^6)** — the length of the string **s**. \
+The second line of each test case contains a string consisting of **n** decimal digits. \
+It is guaranteed that the sum of **n** over all test cases does not exceed **10^6**
 ## Output :
 Print one line containing the answer — The number of substrings divisible by 11
 
@@ -12,23 +15,22 @@ Print one line containing the answer — The number of substrings divisible by 1
 Input:  
 
 ```
-121  
+4
+3
+121
+4
+1111
+6
+123456
+8
+20654301
 ```
 
 Output:  
 
 ```
 1
-```
-
-Input:  
-
-```
-1122334455
-```
-
-Output:  
-
-```
-15
+4
+0
+3
 ```
