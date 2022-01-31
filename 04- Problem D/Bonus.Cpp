@@ -28,9 +28,8 @@ int main() {
     ios_base::sync_with_stdio(false), cin.tie(0);
     int T; cin >> T;
     while (T--) {
-        int n; cin >> n;
+        int n,p; cin >> n >> p;
         string s; cin >> s;
-        int p; cin >> p;
         cout << solve(s, p) << '\n';
     }
 }
