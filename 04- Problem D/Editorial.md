@@ -21,3 +21,5 @@ We solve this with DP. First, we define **dp[x] (0 <= x < 11)** as how many pref
 To calculate that, for each iteration **i** we simply add **dp[sum[i]]** to the answer and increment **dp[sum[i]]** by **1**.
 
 Time complexity: **O(n)** 
+
+Bonus : Solve this problem with any prime number **p < 10^5** 
