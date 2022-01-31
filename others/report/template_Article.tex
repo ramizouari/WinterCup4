@@ -1,0 +1,720 @@
+\documentclass[]{article}
+\usepackage{amsfonts}
+\usepackage{tabularx}
+\usepackage{amsmath}
+\usepackage{mathrsfs}
+ \usepackage{amssymb}
+ \usepackage[bottom]{footmisc}
+%\usepackage{authblk}
+
+\DeclareMathOperator{\ord}{ord}
+%opening
+\title{Winter Cup 4}
+\author{Rami Zouari
+\and 
+Oussema Jeballah
+\and
+Yessine Jallouli}
+
+
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+In this article, we will cite the official Winter Cup 4 problems with their solutions.
+\end{abstract}
+\tableofcontents
+
+\pagebreak
+\part{Rami's Scheme}
+\section{Problem Statement}
+\textbf{Rami}  always was fond of random numbers, he always wonders how randomness arises from the deterministic nature of mathematics.
+
+Wanting to impress his friends, he created a new pseudo-random number generation scheme, that he proudly called Rami Scheme
+
+a \textbf{Rami scheme} consists of the following steps:
+
+1. choose 4 integer parameters: $m,a,b$  such that $0\leq a,b,<m$  with $m$ prime 
+
+2. choose 2 seeds $0\leq u_0,u_1 <m$ 
+
+3. for $k>1,$ $u_k$ will be generated with the following rule:
+$$
+u_k=(au_{k-1}+bu_{k-2})\bmod m
+$$
+
+4. using the rule above, he will calculate many such numbers and use them to generate the following random numbers $(v_k)_{k\in\mathbb{N}}$:
+$$
+v_k=\left(\sum_{i=0}^kiu_i\right)\bmod m
+$$
+
+5. Finally, after calculating many terms $v_0,\dots,v_{10^{18}},$ he will choose $s$ numbers $v_{n_1},\dots,v_{n_s}.$ those final numbers will be the chosen random numbers  
+
+
+Rami wants you to test his scheme, so he asks you for help.
+
+- First of all, he wants you to measure the robustness index $R$  of this scheme, which is defined as the eventual fundamental period of the sequence $(v_k)_{k\in\mathbb{N}}.$ In other words,he wants the smallest strictly positive integer $R$ such that:
+
+$$
+\exists N\in\mathbb{N}/\quad\forall k\in\mathbb{N}_{\ge N}, v_{k+R}=v_k
+$$
+
+
+- After that, he knows that he cannot calculate all terms of the sequence $(v_k)_{k\in\mathbb{N}}$, and he only needs $s$ terms $v_{n_1},\dots,v_{n_s}$ of the sequence. So he asks your help for it
+
+\pagebreak
+\section{Solution using Matrices}
+\subsection{Definitions}
+\begin{tabularx}{0.8\textwidth} { 
+		| >{\raggedright\arraybackslash}X 
+		| >{\centering\arraybackslash}X 
+		| >{\raggedleft\arraybackslash}X | }
+	\hline
+	Term & Definition \\
+	\hline
+	$\mathbb{N}$ & Set of natural numbers: $\{0,1,\dots\}$  \\
+	\hline
+	
+	$\mathbb{P}$ & Set of prime numbers  \\
+	\hline
+	$p$ & the prime number used for the Scheme  \\
+	\hline
+	$\mathbb{F}_p$ or $\mathbb{Z}/p\mathbb{Z}$ & the cyclic field of order $p$  \\
+	\hline
+	$\mathbb{K} \ $\footnote{Note that $\mathbb{K}$ in this solution is $\mathbb{F}_p$} & a field  \\
+	\hline
+	$\mathtt{M}_m(\mathbb{K})$ & The associative algebra of $m\times m$ matrices over $\mathbb{K}$  \\
+	\hline
+	$\mathtt{GL}_m(\mathbb{K})$ & The group of $m\times m$ invertible matrices over $\mathbb{K}$  \\
+	\hline
+		$I_n$ & the idendity matrix of 	$\mathtt{M}_m(\mathbb{K})$ \\
+\hline
+	$a,b$ & parameters of the scheme \\
+\hline
+	$u_0,u_1$ & seeds \\
+\hline
+	$A$ & $=\begin{pmatrix} 0&1 \\ b&a\end{pmatrix}$ \\
+\hline
+	$B$ & $=A-I_m$ \\
+\hline
+	$S_n$ & $$=\sum_{k=0}^n A^k$$ \\
+\hline
+	$\chi_M$ & characteristic polynomial of a matrix $M$  \\
+\hline
+	$\mathtt{EP}(S)$ & eventual fundamental period of a sequence $(S_n)_{n\in\mathbb{N}}$  \\
+\hline
+\end{tabularx}
+\subsection{Strategy}
+The sequence $(u_n)_{n\in\mathbb{N}}$ satisfies second order linear homogeneous recurrent relation.
+
+Let $(U_n)_{n\in\mathbb{N}},(V_n)_{n\in\mathbb{N}}\in\mathbb{F}_p^2$ with:
+\begin{align*}
+	U_n&= \begin{pmatrix}
+		u_n\\ u_{n+1}
+	\end{pmatrix}\\
+V_n&= \begin{pmatrix}
+	v_n\\ v_{n+1}
+\end{pmatrix}
+\end{align*}
+
+We can prove that:
+
+\begin{align*}
+	\forall n\in\mathbb{N}, U_n&=A^nU_0\\
+		\forall n\in\mathbb{N}, V_n&=\sum_{k=0}^nkA^kU_0
+\end{align*}
+
+Thus, the problem of calculating $u_{n_1},\dots,u_{n_s}$ is reduced to the calculation of:
+\begin{equation}\tag{1}
+\boxed{S_n=\sum_{k=0}^n kA^k,\quad n\in\{n_1,\dots,n_s\}} 
+\end{equation}
+Now, the first problem, the eventual period of $(v_n)$ is equal to the eventual period of $(S_n).$ We will show that solving $(1)$ can lead to a probabilistic approach for this problem.
+
+We shall attack the problem $(1),$ we will consider $3$ cases:
+\subsection{Case $1: \ B\in\mathtt{GL}_2(\mathbb{F}_p)$}
+$B^{-1}$ commutes with $A$, and we have:
+$$
+	\boxed{\sum_{k=0}^n kA^k= \frac{nA^{n+2}-(n+1)A^{n+1}+A}{(A-I_2)^2}=B^{-2}\left(nA^{n+2}-(n+1)A^{n+1}+A\right)}
+$$
+\subsection{Case $2: \chi_B$ has a simple root $0$}
+$\chi_B\in\mathbb{F}_p[x]$ has a simple root $0,$ and it is of degree $2$.
+\newline
+So necessarily, it must have another root $\alpha\neq 0,$ and we have:
+$$
+\chi_B=x(x-\alpha)=x^2-\alpha x
+$$ 
+As we have $\chi_B(B)=0,$ we can conclude that:
+$$
+B^2=\alpha B
+$$
+
+\paragraph{Relation between $\alpha$ and $a:$} we have $B=A-I_2$, which implies that $\chi_A(x)=\chi_B(x-1)=(x-1)(x-1-\alpha)=x^2-(2+\alpha)x+1+\alpha$. So
+$$
+a=\alpha+2
+$$
+
+\paragraph{Calculating $A^n:$}
+Let $n\in\mathbb{N},$ we have:
+\begin{align*}
+	A^n&= (B+I_2)^n\\
+	&= \sum_{k=0}^n {n \choose k} B^k \\
+	&= \sum_{k=1}^n {n \choose k} B^k +I_2\\
+	&= \sum_{k=1}^n {n \choose k} \alpha^{k-1}B +I_2\\
+	&= \sum_{k=0}^n {n \choose k} \alpha^{k-1}B +I_2 - \alpha^{-1}B\\
+	&= \sum_{k=0}^n {n \choose k} \alpha^{k}\alpha^{-1}B +I_2 - \alpha^{-1}B\\
+	&=\alpha^{-1}(\alpha+1)^nB-\alpha^{-1}B+I_2
+\end{align*}
+So we can conclude that:
+\begin{align*}
+\sum_{k=0}^n kA^k&=\sum_{k=0}^n k\alpha^{-1}(\alpha+1)^kB-\alpha^{-1}B+I_2 \\
+&= \frac{n(\alpha+1)^{n+2}-(n+1)(\alpha+1)^{n+1}+\alpha+1}{\alpha^3}B+\sum_{k=0}^nk(I_2-\alpha^{-1}B)
+\end{align*}
+\paragraph{For $p=2$:}
+we have, $\sum_{k=0}^nk=n+1-\lceil \frac{n+1}{2}\rceil,$\footnote{As an exception, the term $\frac{n+1}{2}$ inside the ceil function is interpreted as an Euclidean division between two natural numbers, and not modular division between two cyclic elements.} which implies:
+$$
+\boxed{\forall n\in\mathbb{N}, \quad S_n = \frac{n(\alpha+1)^{n+2}-(n+1)(\alpha+1)^{n+1}+\alpha+1}{\alpha^3}B+\left(n+1-\left\lceil \frac{n+1}{2}\right\rceil\right)\left(I_2-\alpha^{-1}B\right)}
+$$
+\paragraph{For $p>2$:}
+we have, $\sum_{k=0}^nk\frac{n(n+1)}{2},$ which implies:
+$$
+\boxed{\forall n\in\mathbb{N}, \quad S_n = \frac{n(\alpha+1)^{n+2}-(n+1)(\alpha+1)^{n+1}+\alpha+1}{\alpha^3}B+\frac{n(n+1)}{2}\left(I_2-\alpha^{-1}B\right)}
+$$
+\subsection{Case $3: \chi_B$ has a double root $0$}
+In this case, we have:
+\begin{align*}
+\forall n \in\mathbb{N}^*,\quad A^n&=(B+I_2)^n\\
+&=\sum_{k=0}^n {n \choose k} B^k \\
+&=\sum_{k=0}^1 {n \choose k} B^k \\
+&=I_2 + nB
+\end{align*}
+and by extension: 
+$$
+\forall n\in\mathbb{N}, \quad A^n=I_2+nB
+$$
+So we have:
+$$
+\boxed{\forall n\in\mathbb{N},\quad S_n = \sum_{k=0}^nk^2B+kI_2}
+$$
+\paragraph{If $p=2$}
+we have:
+$$
+\sum_{k=0}^n k^2=\sum_{k=0}^nk=n+1-\left\lceil \frac{n+1}{2}\right\rceil
+$$
+So, as a consequence:
+$$
+\boxed{\forall n\in\mathbb{N},\quad S_n=\sum_{k=0}^nk^2B+kI_2=\left(n+1-\left\lceil \frac{n+1}{2}\right\rceil\right)(B+I_2)=\left(n+1-\left\lceil \frac{n+1}{2}\right\rceil\right)A}
+$$
+
+\paragraph{If $p=3:$}
+we have:
+$$
+\sum_{k=0}^n k^2=\sum_{k=0}^nk=n+1-\left\lceil \frac{n+1}{3}\right\rceil
+$$
+So, as a consequence:
+$$
+\boxed{\forall n\in\mathbb{N},\quad S_n=\sum_{k=0}^nk^2B+kI_2=\left(n+1-\left\lceil \frac{n+1}{3}\right\rceil\right)B+\frac{n(n+1)}{2}I_2}
+$$
+
+\paragraph{Otherwise, if $p>3:$} we have:
+$$
+\boxed{\forall n\in\mathbb{N}\quad S_n=\frac{n(n+1)(2n+1)}{6}B+\frac{n(n+1)}{2}I_2}
+$$
+\pagebreak
+\subsection{Period Estimation}
+This analysis will be case-specific:
+\begin{itemize}
+	\item Case $1.1: \ B\in\mathtt{GL}_2(\mathbb{F}_p) \ $ and $A\in\mathtt{GL}_2(\mathbb{F}_p)$. By Lagrange's theorem, $\ord A  \mid  \lvert \mathtt{GL}_2(\mathbb{F}_p)\rvert=(p^2-1)(p^2-p).$  
+	
+	So we have $\mathtt{EP}(S) \mid p(p^2-1)(p^2-p)$
+	\item Case $1.2: \ B\in\mathtt{GL}_2(\mathbb{F}_p) \ $ and $A\notin\mathtt{GL}_2(\mathbb{F}_p).$ We have then $A^2=\alpha'A$ for some $\alpha'.$ And as a consequence $\forall n\in\mathbb{N},A^n=\alpha'^{n-1}A.$
+	
+	So we may conclude that $\ord A = \ord \alpha' \mid \lvert \mathbb{F}_p^* \rvert = p-1$ 
+	
+	The result above can also be verified for $\alpha'=0$
+	
+	Finally, we have $\mathtt{EP}(S) \mid p(p-1)$
+	\item Case $2.1: \ B^2=\alpha B, \ \alpha\neq 0 $ and $p=2.$ We have then $\ord \alpha \mid p-1$
+	So, we have $\mathtt{EP}(S) \mid p^2(p-1)=4$
+	\item Case $2.2: \ B^2=\alpha B, \ \alpha\neq 0 $ and $p>2.$ We have then $\ord \alpha \mid p-1$
+
+	So, we have $\mathtt{EP}(S) \mid p(p-1)$
+	\item Case $3.1: \ B^2=0$ and $p=2: \quad \mathtt{EP}(S)=p^2=4$
+	\item Case $3.2: \ B^2=0$ and $p=3:\quad \mathtt{EP}(S)=p^2=9$
+	\item Case $3.3: \ B^2=0$ and $p>3:\quad \mathtt{EP}(S)=p$
+\end{itemize} 
+Now, let $T$ be a strict multiple of the period. By sampling $(S_n)_{n\in\mathbb{N}}$ on $m$ random points $(S_{t_1},\dots,S_{t_m})$, we can estimate the fundamental period $R=\mathtt{EP}(S)$ by finding:
+\begin{equation}\tag{2}
+\boxed{R\approx \arg\min_{d \mid T}\left\{d/\quad S_{t_i} = S_{t_i+d} \quad \forall i\in\{1,\dots,m\}\right\}}
+\end{equation}
+\subsection{Complexity}
+$$
+\mathcal{O}\left(s\log\left(\max_{i\in\{1,\dots,s\}}(n_{i})\right)+md_0(T)\log N+ \log p\right)
+$$
+Where $d_0$ is the count divisors function, and $T$ the initial guess of the period. 
+\pagebreak
+\section{Solution using Ring Theory}
+\subsection{Definitions}
+\begin{tabularx}{0.8\textwidth} { 
+		| >{\raggedright\arraybackslash}X 
+		| >{\centering\arraybackslash}X 
+		| >{\raggedleft\arraybackslash}X | }
+	\hline
+	Term & Definition \\
+	\hline
+	$\mathbb{N}$ & Set of natural numbers: $\{0,1,\dots\}$  \\
+	\hline
+	
+	$\mathbb{P}$ & Set of prime numbers  \\
+	\hline
+	$p$ & the prime number used for the Scheme  \\
+	\hline
+	$\mathbb{F}_p$  or $\mathbb{Z}/p\mathbb{Z}$ & the cyclic field of order $p$  \\
+	\hline
+	$\mathbb{K} \ $\footnote{Note that $\mathbb{K}$ in this solution is a field with characteristic $p.$ More precisely, it is either $\mathbb{F}_p$ or $\mathbb{F}_{p^2}$} & a field  \\
+	\hline
+	$\mathcal{R}$ & a commutative ring  \\
+	\hline
+	$\mathcal{R}[x]$ & the ring of polynomials over $\mathcal{R}$  \\
+	\hline
+	$\mathbb{K}(x)$ & the field of rational functions over $\mathbb{K}$  \\
+	\hline
+	$\mathcal{D}$ & Formal Derivative operator  \\
+	\hline
+	$\frac{\partial}{\partial x}$ & Formal Derivative with respect to $x$ operator  \\
+	\hline
+	$\mathcal{R}/h$ where $h\in\mathcal{R}[x]$ is monic  & ring extension of $\mathcal{R}$ by a root of $h$  \\
+	\hline
+	$\mathtt{M}_m(\mathbb{K})$ & The associative algebra of $m\times m$ matrices over $\mathbb{K}$  \\
+	\hline
+	$\mathtt{GL}_m(\mathbb{K})$ & The group of $m\times m$ invertible matrices over $\mathbb{K}$  \\
+	\hline
+	$I_m$ & the idendity matrix of 	$\mathtt{M}_m(\mathbb{K})$ \\
+	\hline
+	$a,b$ & parameters of the scheme \\
+	\hline
+	$u_0,u_1$ & seeds \\
+	\hline
+	$A$ & $=\begin{pmatrix} 0&1 \\ b&a\end{pmatrix}$ \\
+	\hline
+	$S_n$ & $$=\sum_{k=0}^n A^k$$ \\
+	\hline
+	$\Psi(x,n,m)$ & $$=\sum_{k=0}^nk^mx^k$$\\
+	\hline
+	$\chi_M$ & characteristic polynomial of a matrix $M$  \\
+	\hline
+	$\mathtt{EP}(S)$ & eventual fundamental period of a sequence $(S_n)_{n\in\mathbb{N}}$  \\
+	\hline
+\end{tabularx}
+\subsection{Analysis of $\Psi$ function}
+Here, we will denote by $\mathbb{K}$ a field with characteristic $p.$
+\newline
+\paragraph{Definition \& Importance: } The $\Psi$ function is by definition:
+\begin{align*}
+	\Psi:\mathbb{K}\times \mathbb{N}\times \mathbb{N}&\rightarrow \mathbb{K}\\
+	(x,n,m) & \rightarrow \sum_{k=0}^n k^mx^k
+\end{align*}
+Solutions of the $(1)$ will be expressed with this function. So we will formally build closed form expression for this function on each case.
+\newline
+First of all, we may view this function as a parameterized rational:
+\paragraph{As a Rational Function}
+$$
+\forall n,m\in\mathbb{N}, \Psi(\cdot,n,m) \in\mathbb{K}(x)
+$$
+
+Now, we will formally build a working definition of formal derivation that will help us to express $\Psi$ in a closed form:
+\paragraph{Formal Derivative $\mathcal{D}$ over $\mathbb{K}[x]$:}
+Let $\mathcal{D}:$
+\begin{align*}
+	\mathbb{K}[x]&\rightarrow \mathbb{K}[x]\\
+	\sum_{k=0}^n a_kx^k & \rightarrow \sum_{k=1}^n ka_kx^{k-1}
+\end{align*}
+The operator $\mathcal{D}$ is called the formal derivative.
+\paragraph{Formal Derivative $\mathcal{D}$ over $\mathbb{K}(x)$:}
+Using the definition over $\mathbb{K}[x],$ we extend it to $\mathbb{K}(x)$ with:
+\begin{align*}
+	\mathbb{K}(x)&\rightarrow \mathbb{K}(x)\\
+	\frac{f}{g} & \rightarrow \frac{\mathcal{D}(f)g-f\mathcal{D}(g)}{g^2}
+\end{align*}
+
+Now, viewing $\Psi$ as a parameterized rational function, we will build a working definition of partial derivation with respect to $x$, that will 'fix' $n,m.$ and derive the rational:
+\paragraph{Formal Partial Derivative $\frac{\partial}{\partial x}:$ } Let $f\in\mathcal{F}(\mathbb{K}\times\mathbb{N}\times\mathbb{N},\mathbb{K})$ such that $\forall n,m\in\mathbb{N}, f(\cdot,n,m)\in\mathbb{K}(x).$ By definition, the formal partial derivative of $f$ with respect to $x$ denoted by $\frac{\partial f}{\partial x}$ is the function:
+\begin{align*}
+	\mathbb{K}\times \mathbb{N}\times \mathbb{N}&\rightarrow \mathbb{K}\\
+	(x,n,m) & \rightarrow \mathcal{D}(f(\cdot,n,m))(x)
+\end{align*}
+Finally, with all these definitions, we are ready to evaluate $\Psi$
+\paragraph{Calculating $\Psi(x,n,0):$}
+$$
+\boxed{\Psi(x,n,0)=\begin{cases}
+	\frac{1-x^{n+1}}{1-x} & x\neq 1 \\
+	n+1 & x =1
+\end{cases}}
+$$
+\paragraph{Relation between $\Psi$ and $\frac{\partial \Psi}{\partial x}:$}
+for $x\neq 0,$ we have:
+\begin{align*}
+	\Psi(x,n,m)&=\sum_{i=0}^ni^mx^i\\
+	\frac{\partial \Psi}{\partial x}(x,n,m)&=\sum_{i=0}^ni^{m+1}x^{i-1}\\
+	&=\frac{1}{x}\Psi(x,n,m+1) \\
+	\implies \Psi(x,n,m+1)&=x\frac{\partial \Psi}{\partial x}(x,n,m)
+\end{align*}
+
+This relation can be trivially extended to the case $x=0$
+
+As a conclusion:
+$$
+\boxed{\forall x \in\mathbb{K},\forall n,m\in\mathbb{N},\quad \Psi(x,n,m+1)=x\frac{\partial \Psi}{\partial x}(x,n,m)}
+$$
+
+\paragraph{Recurrence relation for $n=1,\ m<p-1: $} Let $n,m\in\mathbb{N}$ with $m<p-1.$ We have:
+\begin{align*}
+	\sum_{i=0}^{n}(i+1)^{m+1}-i^{m+1}&=(n+1)^{m+1}\\
+	&=\sum_{i=0}^{n}\sum_{j=0}^{m} {m+1 \choose j}i^j\\
+	&=\sum_{j=0}^{m}\sum_{i=0}^{n} {m+1 \choose j}i^j\\
+	&=\sum_{j=0}^{m}{m+1 \choose j}\sum_{i=0}^{n} i^j\\
+	&=\sum_{j=0}^m{m+1 \choose j}\Psi(1,n,j)\\
+\end{align*}
+We can conclude that:
+$$
+\boxed{\forall n,m\in\mathbb{N}\ /\ m<p-1,\quad\Psi(1,n,m)=\frac{1}{m+1}\left((n+1)^{m+1}-\sum_{i=0}^{m-1}{m+1 \choose i}\Psi(1,n,i)\right)}
+$$
+
+\paragraph{Evaluating $\Psi(1,n,p-1): $} we have
+\begin{align*}
+	\Psi(1,n,p-1)&= \sum_{i=0}^ni^{p-1}\\
+	&= \sum_{p \nmid i,0\leq i \leq n} 1\\
+	\sum_{i=0}^ni^{p-1}+\sum_{p\mid i, \ 0\leq i\leq n}1
+	&=\sum_{p \nmid i,0\leq i \leq n} 1+ \sum_{p\mid i, \ 0\leq i\leq n}1\\
+	&=\sum_{0\leq i \leq n} 1 \\
+	&=n+1\\
+	\sum_{p|i, \ 0\leq i\leq n}1&=\left\lceil\frac{n+1}{p}\right\rceil \\
+\end{align*}
+ As a conclusion\footnote{As an exception, the term $\frac{n+1}{p}$ inside the ceil function is interpreted as an Euclidean division between two natural numbers, and not modular division between two cyclic elements.}:
+ $$
+ \boxed{\forall n\in\mathbb{N},\quad \Psi(1,n,p-1) =n+1 -\left\lceil\frac{n+1}{p}\right\rceil}
+ $$
+ 
+ \pagebreak
+\subsection{Strategy}
+The sequence $(u_n)_{n\in\mathbb{N}}$ satisfies second order linear homogeneous recurrent relation.
+
+Let $(U_n)_{n\in\mathbb{N}},(V_n)_{n\in\mathbb{N}}\in\mathbb{F}_p^2$ with:
+\begin{align*}
+	U_n&= \begin{pmatrix}
+		u_n\\ u_{n+1}
+	\end{pmatrix}\\
+	V_n&= \begin{pmatrix}
+		v_n\\ v_{n+1}
+	\end{pmatrix}
+\end{align*}
+
+We can prove that:
+
+\begin{align*}
+	\forall n\in\mathbb{N}, U_n&=A^nU_0\\
+	\forall n\in\mathbb{N}, V_n&=\sum_{k=0}^nkA^kU_0
+\end{align*}
+
+Thus, the problem of calculating $u_{n_1},\dots,u_{n_s}$ is reduced to the calculation of:
+\begin{equation}\tag{1}
+	\boxed{S_n=\sum_{k=0}^n kA^k,\quad n\in\{n_1,\dots,n_s\}} 
+\end{equation}
+Now, this is the same problem of the matrix approach, but here we will reduce it further by diagonalising $A,$ or at least putting it in a jordan normal form.
+
+
+Now, for the first problem, the eventual period of $(v_n)$ is equal to the eventual period of $(S_n).$ We will show that solving $(1)$ can lead to a probabilistic approach for this problem.
+\subsection{Solving $\chi_A(x) = 0$ over $\mathbb{F}_p$}
+\paragraph{If $p=2: $} then $\chi_A$ is irreducible if and only if $a=b=1.$ Otherwise, the roots can be easily found with inspection.
+\paragraph{If $p>2: $} Let $\Delta=a^2+4b$.
+\subparagraph{If $\Delta$ is a quadratic residue,} then $\chi_A=0$ has two solutions $$\varphi_{1/2}=\frac{1\pm \sqrt{\Delta}}{2}$$Where $\sqrt{\Delta}$ is any solution of $x^2=\Delta$
+\subparagraph{Otherwise, if $\Delta$ is a quadratic non-residue,} then $\chi_A = 0$ has no solution.
+\subsection{Case $1: \ \chi_A$ is irreducible over $\mathbb{F}_p$}
+In this case, we will extend $\mathbb{F}_p$ by adjoining a root of $\chi_A.$
+
+Let $\mathcal{R}=\mathbb{F}_p[x]/\chi_A$ be that extension. clearly, $\mathcal{R}$ is a commutative ring. Furthermore, it is a field thanks to the irreducibility of $\chi_A$ over $\mathbb{F}_p.$ So we will denote it by $\mathbb{K}=\mathcal{R}$
+
+Let $\varphi \in\mathbb{K}$ a root of $\chi_A.$ We have $\deg \chi_A = 2,$ so necessarily, $\chi_A$ has another root $\bar\varphi \in\mathbb{K}.$
+\paragraph{Proof that $\bar\varphi \neq \varphi:$} assume otherwise, we have:
+\begin{align*}
+	\chi_A&=(x-\varphi)^2\\
+	&=x^2-2\varphi x  + \phi ^2
+	&= x^2 -2ax+b\\
+\implies \varphi &= a \in\mathbb{F}_p \text{ which is a contradiction}
+\end{align*}
+\paragraph{Proof that $\bar\varphi = \varphi ^p:$}
+\begin{align*}
+	(\varphi\bar\varphi)^p&=(-b)^p\\
+	&=-b \quad\text{ because } (-b)\in\mathbb{F}_p \\
+	&=\varphi^p\bar\varphi^p\\
+	(\varphi+\bar\varphi)^p&=a^p\\
+	&=a \text{ because } a\in\mathbb{F}_p \\
+	&=\varphi^p+\bar\varphi^p\quad \text{ (Frobenius Automorphism)}
+\end{align*}
+So $\varphi^p,\bar\varphi^p$ are also two roots of $\chi_A.$ If $\varphi^p=\varphi,$ then $\varphi$ is a root of $x^p-x$ which implies that $\varphi\in\mathbb{F}_p.$ a contradiction.
+\newline
+So, necessarily, $\varphi^p=\bar\varphi \ \square .$
+\paragraph{Multiplicative order of $\varphi:$} we have $\varphi \in\mathbb{K}^*$ and $\mathbb{K}$ is a field with order $p^2.$ Then, by Lagrange's theorem:
+$$
+	\ord \varphi \mid \lvert  \mathbb{K}^{\times}\rvert =\lvert  \mathbb{K}^{*}\rvert= p^2-1
+$$ 
+\paragraph{Proof that $A$ is diagonalisable:} we have $A\in\mathtt{M}_2(\mathbb{K}),$ and we have $\chi_A\in\mathbb{K}[x]$ is reducible over $\mathbb{K}$ with simple roots $\varphi,\bar\varphi.$ So $A$ is necessarily diagonalisable over $\mathtt{M}_2(\mathbb{K})$
+
+\paragraph{Eigenvectors of $A$}
+Let $e=\begin{pmatrix}
+	1 \\ \varphi
+\end{pmatrix},\bar e = \begin{pmatrix}
+1 \\ \bar{\varphi}
+\end{pmatrix}.$ we have:
+\begin{align*}
+	Ae&=\begin{pmatrix}
+		\varphi \\
+		b + a\varphi
+	\end{pmatrix} \\
+&= \begin{pmatrix}
+	\varphi \\
+	\varphi^2
+\end{pmatrix}\\
+&= \varphi \begin{pmatrix}
+	1 \\
+	\varphi
+\end{pmatrix}\\
+&= \varphi e \\
+\text{Also, }A \bar e &= \bar{\varphi}\bar e
+\end{align*}
+So $\mathscr{B}=(e,\bar e)$ is an eigenbasis of $A$
+\paragraph{Eigendecomposition of $A:$}
+\begin{align*} \tag{3.a}
+	A &= \begin{pmatrix}
+		1 & 1 \\ \varphi & \bar\varphi 
+	\end{pmatrix} \begin{pmatrix}
+	\varphi & 0 \\ 0 & \bar \varphi
+\end{pmatrix}\begin{pmatrix}
+1 & 1 \\ \varphi & \bar\varphi
+\end{pmatrix}^{-1} \\
+&= PDP^{-1}
+\end{align*}
+\paragraph{$S_n$ as a function of $\varphi$ and $\bar\varphi:$}
+we have $\forall n\in\mathbb{N}$
+\begin{align*}
+A^n&=PD^nP^{-1}\\
+&=\begin{pmatrix}
+	1 & 1 \\ \varphi & \bar\varphi 
+\end{pmatrix} \begin{pmatrix}
+	\varphi^n & 0 \\ 0 & \bar {\varphi}^n
+\end{pmatrix}\begin{pmatrix}
+	1 & 1 \\ \varphi & \bar\varphi
+\end{pmatrix}^{-1} \\
+S_n&= \sum_{k=0}^n k A^k \\
+&= P\left(\sum_{k=0}^{n} kD^k\right)P^{-1}\\
+&= \begin{pmatrix}
+	1 & 1 \\ \varphi & \bar\varphi 
+\end{pmatrix} \begin{pmatrix}
+	\sum_{k=0}^nk\varphi^k& 0 \\ 0 & \sum_{k=0}^nk\bar {\varphi}^k
+\end{pmatrix}\begin{pmatrix}
+	1 & 1 \\ \varphi & \bar\varphi
+\end{pmatrix}^{-1} \\ 
+&= \begin{pmatrix}
+	1 & 1 \\ \varphi & \bar\varphi 
+\end{pmatrix} \begin{pmatrix}
+	\Psi(\varphi,n,1)& 0 \\ 0 & \Psi(\bar {\varphi},n,1)
+\end{pmatrix}\begin{pmatrix}
+	1 & 1 \\ \varphi & \bar\varphi
+\end{pmatrix}^{-1} \\
+\text{with } \Psi(x,n,1)&= \sum_{k=0}^n k x^k \\
+&=\frac{nx^{n+2}-(n+1)x^{n+1}+x}{(1-x)^2} \quad  \text{for } x\neq 1
+\end{align*}
+\subsection{Case $2: \ \chi_A$ has simple roots}
+Let $\varphi_1,\varphi_2 \in\mathbb{F}_p$ the distinct eigenvalues of $A$.
+It is evident that $A$ is diagonalisable.
+\newline
+Furthermore, $e_1=\begin{pmatrix}
+	1 \\ \varphi_1
+\end{pmatrix},e_2=\begin{pmatrix}
+1 \\ \varphi_2
+\end{pmatrix}$ are the associated eigenvectors of $A$.
+\paragraph{Eigendecomposition of $A: $}
+We have: 
+\begin{align*}
+	A&=PDP^{-1} \\
+	&=
+	\begin{pmatrix}
+		1 & 1 \\ \varphi_1 & \varphi_2 
+	\end{pmatrix} \begin{pmatrix}
+		\varphi_1& 0 \\ 0 & \varphi_2
+	\end{pmatrix}\begin{pmatrix}
+		1 & 1 \\ \varphi_1 & \varphi_2
+	\end{pmatrix}^{-1} 
+\end{align*}
+
+\paragraph{$S_n$ as a function of $\varphi$ and $\bar\varphi:$}
+we have $\forall n\in\mathbb{N}$
+\begin{align*}
+	A^n&=PD^nP^{-1}\\
+	&=\begin{pmatrix}
+		1 & 1 \\ \varphi_1 & \varphi_2 
+	\end{pmatrix} \begin{pmatrix}
+		\varphi_1^n & 0 \\ 0 & \varphi_2^n
+	\end{pmatrix}\begin{pmatrix}
+		1 & 1 \\ \varphi_1 & \varphi_2
+	\end{pmatrix}^{-1} \\
+	S_n&= \sum_{k=0}^n k A^k \\
+	&= P\left(\sum_{k=0}^{n} kD^k\right)P^{-1}\\
+	&= \begin{pmatrix}
+		1 & 1 \\ \varphi_1 & \varphi_2 
+	\end{pmatrix} \begin{pmatrix}
+		\sum_{k=0}^nk\varphi_1^k& 0 \\ 0 & \sum_{k=0}^nk \varphi_2^k
+	\end{pmatrix}\begin{pmatrix}
+		1 & 1 \\ \varphi_1 & \varphi_2
+	\end{pmatrix}^{-1} \\ 
+	&= \begin{pmatrix}
+		1 & 1 \\ \varphi_1 & \varphi_2 
+	\end{pmatrix} \begin{pmatrix}
+		\Psi(\varphi_1,n,1)& 0 \\ 0 & \Psi(\varphi_2,n,1)
+	\end{pmatrix}\begin{pmatrix}
+		1 & 1 \\ \varphi_1 & \varphi_2
+	\end{pmatrix}^{-1} \\
+	\text{with } \Psi(x,n,1)&= \sum_{k=0}^n k x^k \\
+	&= \begin{cases}
+		\frac{nx^{n+2}-(n+1)x^{n+1}+x}{(1-x)^2}&  \text{for } x\neq 1 \\
+		\frac{n(n+1)}{2} & \text{for } x=1 \ \& \ p>2 \\
+		n+1-\left\lceil \frac{n+1}{2}\right\rceil & \text{for } x=1 \ \& \ p=2
+	\end{cases}
+\end{align*}
+\subsection{Case $3: \ \chi_A$ has a double root $\varphi$}
+In this case $\chi_A=(x-\varphi)^2=x^2-2\varphi x +\varphi^2=x^2-a-b.$ 
+\newline 
+So we have:
+$$
+\begin{pmatrix}
+	a \\ b
+\end{pmatrix} = \begin{pmatrix}
+2\varphi \\ -\varphi^2
+\end{pmatrix}
+$$
+\newline
+\paragraph{Proof that $A$ is defective: } let $e_1=\begin{pmatrix}
+	1 \\ \varphi
+\end{pmatrix},e_2=\begin{pmatrix}
+	0 \\ 1
+\end{pmatrix},$ we have:
+\begin{align*}
+	Ae_1&=\varphi e_1 \\
+	Ae_2&=\begin{pmatrix}
+		1 \\ a 
+	\end{pmatrix} \\
+&=\begin{pmatrix}
+	1 \\ 2\varphi 
+\end{pmatrix}\\
+&=\begin{pmatrix}
+	1 \\ \varphi 
+\end{pmatrix}+\begin{pmatrix}
+0 \\ \varphi  
+\end{pmatrix} \\
+&=e_1+\varphi e_2 \\ 
+\implies (A-\varphi I_2)e_2 &= e_1 \\
+\text{and } (A-\varphi I_2)^2e_2 &= 0
+\end{align*}
+So $A$ is defective. But it still has a Jordan Normal Form.
+\paragraph{Jordan Normal Form of $A^: $} We have: 
+\begin{align*}
+	A&=PJP^{-1} \\
+	&=
+	\begin{pmatrix}
+		1 & 0 \\ \varphi & 1
+	\end{pmatrix} \begin{pmatrix}
+		\varphi & 1 \\ 0 & \varphi
+	\end{pmatrix}\begin{pmatrix}
+		1 & 0 \\ \varphi & 1
+	\end{pmatrix}^{-1} \\
+&=\begin{pmatrix}
+	1 & 0 \\ \varphi & 1
+\end{pmatrix} \begin{pmatrix}
+	\varphi & 1 \\ 0 & \varphi
+\end{pmatrix}\begin{pmatrix}
+	1 & 0 \\ -\varphi & 1
+\end{pmatrix}
+\end{align*}
+\paragraph{$S_n$ as a function of $\varphi:$}
+we have $\forall n\in\mathbb{N}$
+\begin{align*}
+	A^n&=PJ^nP^{-1}\\
+	&=\begin{pmatrix}
+		1 & 0 \\ \varphi & 1 
+	\end{pmatrix} \begin{pmatrix}
+		\varphi^n & n\varphi^{n-1} \\ 0 & \varphi^n
+	\end{pmatrix}\begin{pmatrix}
+		1 & 0 \\ -\varphi & 1
+	\end{pmatrix} \\
+	S_n&= \sum_{k=0}^n k A^k \\
+	&= P\left(\sum_{k=0}^{n} kJ^k\right)P^{-1}\\
+	&= \begin{pmatrix}
+		1 & 0 \\ \varphi & 1 
+	\end{pmatrix} \begin{pmatrix}
+		\sum_{k=0}^nk\varphi_1^k& \sum_{k=0}^n k^2 \varphi^{k-1} \\ 0 & \sum_{k=0}^nk \varphi^k
+	\end{pmatrix}\begin{pmatrix}
+		1 & 0 \\ -\varphi & 1
+	\end{pmatrix} \\ 
+	&= \begin{pmatrix}
+		1 & 0 \\ \varphi & 1 
+	\end{pmatrix} \begin{pmatrix}
+		\Psi(\varphi,n,1)& \frac{\partial\Psi}{\partial x}(\varphi,n,1) \\ 0 & \Psi(\varphi,n,1)
+	\end{pmatrix}\begin{pmatrix}
+		1 & 0 \\ -\varphi & 1
+	\end{pmatrix}
+\end{align*}
+With:
+\begin{align*}
+	\Psi(x,n,1)&= \sum_{k=0}^n k x^k \\
+	&= \begin{cases}
+		\frac{nx^{n+2}-(n+1)x^{n+1}+x}{(1-x)^2}&  \text{for } x\neq 1 \\
+		\frac{n(n+1)}{2} & \text{for } x=1 \ \& \ p>2 \\
+		n+1-\left\lceil \frac{n+1}{2}\right\rceil & \text{for } x=1 \ \& \ p=2
+			\end{cases} \\
+	\frac{\partial\Psi}{\partial x}(x,n,1)&=\frac{\partial }{\partial x} \sum_{k=0}^n k x^k\\
+	&=\sum_{k=0}^n k \frac{\partial }{\partial x} x^k \\
+	&= \sum_{k=0}^n k^2x^{k-1}\\
+	&=\begin{cases}
+		\frac{-n^2x^{n+2}+(2n^2+2n-1)x^{n+1}-(n+1)^2x^{n+1}+x+1}{(1-x)^3} &x\neq 1\\
+		\frac{n(n+1)(2n+1)}{6} & x=1 \ \& \ p>3\\
+		n+1-\lceil \frac{n+1}{3} \rceil & x=1 \ \& \ p=3 \\
+		n+1-\lceil \frac{n+1}{2} \rceil & x=1 \ \& \ p=2
+	\end{cases}
+\end{align*}
+\pagebreak
+\subsection{Period Estimation}
+This analysis will be case-specific:
+\begin{itemize}
+	\item Case $1: \chi_A$ is irreducible. We have: $\ord \bar\varphi,\ord \varphi \mid p^2-1.$
+	\newline
+	So necessarily, $\mathtt{EP}(S) \mid p(p^2-1) $
+	\item Case $2.1: \chi_A(1)=0$ and $p=2:$ Let $x$ be the other root.
+	\newline we have $\ord x \mid p-1.$ So necessarily, $\mathtt{EP}(S) \mid p^2(p-1) = 4 $
+	\item Case $2.2: \chi_A(1)=0$ and $p>2: $
+	 Let $x$ be the other root. 
+	 \newline 
+	 we have $\ord x \mid p-1.$ So necessarily, $\mathtt{EP}(S) \mid p(p-1)$
+	\item Case $2.3: \chi_A(1)\neq 0: $
+	Let $\varphi_1,\varphi_2\in\mathbb{F}_p$ be the distinct roots.
+	\newline
+	we have $\ord \varphi_1,\ord \varphi_2 \mid p-1.$ So necessarily, $\mathtt{EP}(S) \mid p(p-1)$
+	\item Case $3.1: \varphi = 1$ and $p=2: \ \mathtt{EP}(S) \mid p^2=4$
+	\item Case $3.2: \varphi = 1$ and $p=3: \ \mathtt{EP}(S) \mid p^2=9$
+	\item Case $3.3: \varphi = 1$ and $p>3: \ \mathtt{EP}(S) \mid p$
+	\item Case $3.4: \varphi \neq 1: \ \mathtt{EP}(S) \mid p(p-1)$
+\end{itemize}
+Now, let $T$ be a strict multiple of the period. By sampling $(S_n)_{n\in\mathbb{N}}$ on $m$ random points $(S_{t_1},\dots,S_{t_m})$, we can estimate the fundamental period $R=\mathtt{EP}(S)$ by finding:
+\begin{equation}\tag{2}
+	\boxed{R\approx \arg\min_{d \mid T}\left\{d/\quad S_{t_i} = S_{t_i+d} \quad \forall i\in\{1,\dots,m\}\right\}}
+\end{equation}
+\subsection{Complexity}
+$$
+\mathcal{O}\left(s\log\left(\max_{i\in\{1,\dots,s\}}(n_{i})\right)+md_0(T)\log N + \log p\right)
+$$
+Where $d_0$ is the count divisors function, and $T$ the initial guess of the period. 
+\pagebreak
+\section{Solution using Pattern Matching}
+\pagebreak
+\part{Mean Absolute Deviation}
+\end{document}

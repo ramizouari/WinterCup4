@@ -1,0 +1,54 @@
+\contentsline {part}{I\hspace {1em}Rami's Scheme}{2}{}%
+\contentsline {section}{\numberline {1}Problem Statement}{2}{}%
+\contentsline {section}{\numberline {2}Solution using Matrices}{3}{}%
+\contentsline {subsection}{\numberline {2.1}Definitions}{3}{}%
+\contentsline {subsection}{\numberline {2.2}Strategy}{3}{}%
+\contentsline {subsection}{\numberline {2.3}Case $1: \ B\in \mathtt {GL}_2(\mathbb {F}_p)$}{4}{}%
+\contentsline {subsection}{\numberline {2.4}Case $2: \chi _B$ has a simple root $0$}{4}{}%
+\contentsline {paragraph}{Relation between $\alpha $ and $a:$}{4}{}%
+\contentsline {paragraph}{Calculating $A^n:$}{5}{}%
+\contentsline {paragraph}{For $p=2$:}{5}{}%
+\contentsline {paragraph}{For $p>2$:}{5}{}%
+\contentsline {subsection}{\numberline {2.5}Case $3: \chi _B$ has a double root $0$}{6}{}%
+\contentsline {paragraph}{If $p=2$}{6}{}%
+\contentsline {paragraph}{If $p=3:$}{6}{}%
+\contentsline {paragraph}{Otherwise, if $p>3:$}{6}{}%
+\contentsline {subsection}{\numberline {2.6}Period Estimation}{7}{}%
+\contentsline {subsection}{\numberline {2.7}Complexity}{7}{}%
+\contentsline {section}{\numberline {3}Solution using Ring Theory}{8}{}%
+\contentsline {subsection}{\numberline {3.1}Definitions}{8}{}%
+\contentsline {subsection}{\numberline {3.2}Analysis of $\Psi $ function}{9}{}%
+\contentsline {paragraph}{Definition \& Importance: }{9}{}%
+\contentsline {paragraph}{As a Rational Function}{9}{}%
+\contentsline {paragraph}{Formal Derivative $\mathcal {D}$ over $\mathbb {K}[x]$:}{9}{}%
+\contentsline {paragraph}{Formal Derivative $\mathcal {D}$ over $\mathbb {K}(x)$:}{9}{}%
+\contentsline {paragraph}{Formal Partial Derivative $\frac {\partial }{\partial x}:$ }{9}{}%
+\contentsline {paragraph}{Calculating $\Psi (x,n,0):$}{10}{}%
+\contentsline {paragraph}{Relation between $\Psi $ and $\frac {\partial \Psi }{\partial x}:$}{10}{}%
+\contentsline {paragraph}{Recurrence relation for $n=1,\ m<p-1: $}{10}{}%
+\contentsline {paragraph}{Evaluating $\Psi (1,n,p-1): $}{11}{}%
+\contentsline {subsection}{\numberline {3.3}Strategy}{12}{}%
+\contentsline {subsection}{\numberline {3.4}Solving $\chi _A(x) = 0$ over $\mathbb {F}_p$}{12}{}%
+\contentsline {paragraph}{If $p=2: $}{12}{}%
+\contentsline {paragraph}{If $p>2: $}{12}{}%
+\contentsline {subparagraph}{If $\Delta $ is a quadratic residue,}{12}{}%
+\contentsline {subparagraph}{Otherwise, if $\Delta $ is a quadratic non-residue,}{12}{}%
+\contentsline {subsection}{\numberline {3.5}Case $1: \ \chi _A$ is irreducible over $\mathbb {F}_p$}{13}{}%
+\contentsline {paragraph}{Proof that $\bar \varphi \neq \varphi :$}{13}{}%
+\contentsline {paragraph}{Proof that $\bar \varphi = \varphi ^p:$}{13}{}%
+\contentsline {paragraph}{Multiplicative order of $\varphi :$}{13}{}%
+\contentsline {paragraph}{Proof that $A$ is diagonalisable:}{13}{}%
+\contentsline {paragraph}{Eigenvectors of $A$}{14}{}%
+\contentsline {paragraph}{Eigendecomposition of $A:$}{14}{}%
+\contentsline {paragraph}{$S_n$ as a function of $\varphi $ and $\bar \varphi :$}{14}{}%
+\contentsline {subsection}{\numberline {3.6}Case $2: \ \chi _A$ has simple roots}{14}{}%
+\contentsline {paragraph}{Eigendecomposition of $A: $}{15}{}%
+\contentsline {paragraph}{$S_n$ as a function of $\varphi $ and $\bar \varphi :$}{15}{}%
+\contentsline {subsection}{\numberline {3.7}Case $3: \ \chi _A$ has a double root $\varphi $}{15}{}%
+\contentsline {paragraph}{Proof that $A$ is defective: }{16}{}%
+\contentsline {paragraph}{Jordan Normal Form of $A^: $}{16}{}%
+\contentsline {paragraph}{$S_n$ as a function of $\varphi :$}{16}{}%
+\contentsline {subsection}{\numberline {3.8}Period Estimation}{18}{}%
+\contentsline {subsection}{\numberline {3.9}Complexity}{18}{}%
+\contentsline {section}{\numberline {4}Solution using Pattern Matching}{19}{}%
+\contentsline {part}{II\hspace {1em}Mean Absolute Deviation}{20}{}%
