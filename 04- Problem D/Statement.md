@@ -4,31 +4,31 @@ Yessine was trying to log into his email when he realized that he forgot his pas
 A string **a** is a substring of a string **b** if **a** can be obtained from **b** by deletion of several (possibly, zero or all) characters from the beginning and several (possibly, zero or all) characters from the end.
 
 ## Input :
-
+The first and only line of the input contains a string **S** consisting of decimal digits  (2 <= |S| <= 10^6)
 ## Output :
-
+Print one line containing the answer — The number of substrings divisible by 11
 
 ## Example:
-Input 1 :  
+Input:  
 
 ```
-  
+121  
 ```
 
-Output 1:  
+Output:  
 
 ```
-
+1
 ```
 
-Input 2:  
+Input:  
 
 ```
-
+1122334455
 ```
 
-Output 2:  
+Output:  
 
 ```
-
+15
 ```
