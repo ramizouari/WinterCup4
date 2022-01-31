@@ -6,7 +6,7 @@
 
 **Explanation:**  
 
-First of all, let's multiply the digits of odd position by -1
+First of all, let's multiply the digits in odd positions by -1
 
 A simple solution is to consider all subarrays one by one and check if sum of every subarray is equal to 0 modulo 11 or not. The complexity of this solution would be **O(n^2)**. 
 
