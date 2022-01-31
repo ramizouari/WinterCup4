@@ -14,7 +14,7 @@ A better approach is to use dynamic programming.
 
 Let's define the array **sum**, the prefix sum of the digits in the array modulo 11.
 
-For each **1 <= i <= n** , we need to calculate the number of substrings ending in **i** which are divisible by 11 and then print their sum. Formally, we need to find how many **j** **(1 <=j <= i)** exists such that sum[i]  = sum[j] so that **s[j+1..i]** is divisible by 11. 
+For each **1 <= i <= n** , we need to calculate the number of substrings ending in **i** which are divisible by 11 and then print their sum. Formally, we need to find how many **j** **(1 <=j <= i)** exist such that sum[i]  = sum[j] so that **s[j+1..i]** is divisible by 11. 
 
 We solve this with DP. First, we define **dp[x] (0 <= x < 11)** as how many prefix sum (modulo **11**) is equal to **x**.	
 
