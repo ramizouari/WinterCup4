@@ -1,0 +1,5 @@
+cmake_minimum_required(VERSION 3.11)
+project(WinterCup4)
+set(CMAKE_CXX_STANDARD 23)
+add_executable(MAD_StatisticTree solution_statistic_tree.cpp )
+        
