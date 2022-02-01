@@ -1,11 +1,11 @@
 #include <bits/stdc++.h>
 #define SaveTime ios_base::sync_with_stdio(false), cin.tie(0);
 using namespace std;
- 
+
 const int N = 1e6+7;
 deque<int> v(N);
 int u[N];
- 
+
 vector<int> z_function() {
     int n = v.size();
     vector<int> z(n);
@@ -19,7 +19,7 @@ vector<int> z_function() {
     }
     return z;
 }
- 
+
 int main() {
     SaveTime
     int m,a,b; cin >> m >> a >> b >> u[0] >> u[1];
@@ -39,7 +39,9 @@ int main() {
             break;
         }
     }
+    int offset = 0;
     if (periode == -1) {
+        offset = 1;
         v.pop_front();
         z = z_function();
         for (int i = 0; i < N-1; i++) {
@@ -50,6 +52,7 @@ int main() {
         }
         v.push_front(0);
     }
+    cout << offset << '\n';
     cout << periode << '\n';
     for (int i = 0; i < s; i++) {
         int n; cin >> n;
