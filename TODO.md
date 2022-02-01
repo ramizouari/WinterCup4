@@ -19,7 +19,7 @@
 
 ### Decrypting the password:
 
-- [x] Problem Statement: **Yessine**
+- [x] Problem Statement: **Yessine/Oussama**
 - [x] Problem Solution: **Yessine**
 - [x] Solution's correctness Proof: **Yessine**
 - [ ] Generating test cases
@@ -36,3 +36,9 @@
 - [ ] Generating test cases
 - [ ] Testing the $3$ solutions on test cases
 
+
+### Exam:
+- [x] Problem Statement: **Yessine/Oussama**
+- [ ] Problem Solution:
+- [ ] Solution's correctness Proof:
+- [ ] Generating test cases
