@@ -32,7 +32,8 @@
 - [x] Problem Solution:
   - [x] Easy Version: **Yessine**
   - [x] Hard Version: **Rami,** $2$ solutions
-- [x] Solution's correctness Proof: **Rami** 
+- [x] Solution's correctness Proof (Hard Version) : **Rami** 
+- [ ] Solution's correctness Proof (Easy Version) :
 - [ ] Generating test cases
 - [ ] Testing the $3$ solutions on test cases
 
