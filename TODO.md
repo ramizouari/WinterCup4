@@ -17,7 +17,7 @@
 
 
 
-### Problem D (Decrypting the password):
+### Decrypting the password:
 
 - [x] Problem Statement: **Yessine**
 - [x] Problem Solution: **Yessine**
