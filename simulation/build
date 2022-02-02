@@ -4,6 +4,7 @@ cd test
 mkdir -p out
 echo '*' >.gitignore
 echo '![0-9]*.in' >>.gitignore
+echo '![0-9]*.out' >>.gitignore
 echo '!.gitignore' >>.gitignore
 cd out
 cmake ../..
