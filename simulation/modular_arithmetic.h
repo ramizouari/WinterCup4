@@ -98,11 +98,6 @@ public:
         return (*this)*O.inv();
     }
 
-    cyclic pinv() const
-    {
-        return egcd(n,m).a;
-    }
-
     auto inv() const
     {
         return pow(*this,m-2);

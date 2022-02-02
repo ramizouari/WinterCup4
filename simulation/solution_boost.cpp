@@ -1,9 +1,10 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
-#include "boost/multiprecision/cpp_bin_float.hpp"
+//#include <boost/multiprecision/cpp_bin_float.hpp>
 
-using real = boost::multiprecision::number<boost::multiprecision::cpp_bin_float<1000> >;
+//using real = boost::multiprecision::number<boost::multiprecision::cpp_bin_float<1000> >;
+using real = long double;
 constexpr int M_max = 300;
 
 
@@ -20,7 +21,7 @@ int main()
 	int n, m, K, s;
 	std::cin >> n >> m >> K >> s;
 	std::vector<int> A(s);
-	std::vector<std::vector<real>>p(n+1, std::vector<real>(m+1,0));
+	std::vector<std::vector<real>>p(n+1, std::vector<real>(m+1,0.L));
 	for (auto& a : A)
 		std::cin >> a;
 	for (int j = K; j <= m; j++)
