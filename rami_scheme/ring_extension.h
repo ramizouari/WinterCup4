@@ -170,7 +170,7 @@ namespace std
 {
     template<typename R>
     struct tuple_size<rational_extension<R>> : integral_constant<size_t, 2> {};
-    template<unsigned long long int k, typename R>
+    template<std::size_t k, typename R>
     struct tuple_element<k, rational_extension<R>>
     {
         using type = R;
@@ -953,7 +953,7 @@ namespace std
 {
     template<typename R,int a,int b>
     struct tuple_size<quadratic_extension<R,a,b>> : integral_constant<size_t, 2> {};
-    template<unsigned long long int k, typename R,int a,int b>
+    template<std::size_t k, typename R,int a,int b>
     struct tuple_element<k, quadratic_extension<R,a,b>>
     {
         using type = R;
@@ -1226,7 +1226,7 @@ namespace std
 {
     template<typename R>
     struct tuple_size<d_quadratic_extension<R>> : integral_constant<size_t, 2> {};
-    template<unsigned long long int k, typename R>
+    template<std::size_t k, typename R>
     struct tuple_element<k, d_quadratic_extension<R>>
     {
         using type = R;

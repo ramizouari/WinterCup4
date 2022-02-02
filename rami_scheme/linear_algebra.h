@@ -274,7 +274,7 @@ namespace std
 {
     template<typename R,int n>
     struct tuple_size<s_vector<R, n>> : std::integral_constant<size_t, n>{};
-    template<unsigned long long int k,typename R,int n>
+    template<std::size_t k,typename R,int n>
     struct tuple_element<k, s_vector<R, n>>
     {
         using type = R;
