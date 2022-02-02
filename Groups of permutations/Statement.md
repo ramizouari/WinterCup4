@@ -2,7 +2,7 @@
 
 Yessine has an array **a** of positive integers.
 
-He wonder if he can partition this array into consecutive groups such that every group is a permutation of any size.
+He wonders if he can partition this array into consecutive groups such that every group is a permutation of any size.
 
 For example, if $a = [4,1,3,2,2,1,3,2,1]$ he can split it into $3$ groups : $([4,1,3,2] \ [2,1] \ [3,2,1])$. However the array $a = [4,1,3,2,3,1]$ can't be partitioned into groups of permutations.
 
