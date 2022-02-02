@@ -28,12 +28,13 @@
 
 ### Rami's Scheme:
 
-- [x] Problem Statement
+- [x] Problem Statement: **Rami**
 - [x] Problem Solution:
   - [x] Easy Version: **Yessine**
   - [x] Hard Version: **Rami,** $2$ solutions
-- [x] Solution's correctness Proof (Hard Version) : **Rami** 
-- [ ] Solution's correctness Proof (Easy Version) :
+- [x] Solution's correctness Proof: 
+  - [x] Easy Version: **Yessine**
+  - [x] Hard Version: **Rami** 
 - [ ] Generating test cases
 - [ ] Testing the $3$ solutions on test cases
 
@@ -43,3 +44,18 @@
 - [ ] Problem Solution:
 - [ ] Solution's correctness Proof:
 - [ ] Generating test cases
+
+### 1D Monopoly:
+
+- [x] Problem Statement: **Rami**
+- [x] Problem Solution: **Rami**
+- [ ] Solution's correctness Proof:
+- [ ] Generating test cases
+
+### Simulation:
+
+- [x] Problem Statement: **Rami**
+- [x] Problem Solution: **Rami**
+- [ ] Solution's correctness Proof:
+- [ ] Generating test cases
+
