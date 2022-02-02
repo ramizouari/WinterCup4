@@ -1,6 +1,6 @@
 ## Groups of permutations (UNFINISHED)
 
-Yessine has an array **a** of positive integers.
+Yessine has an array **a** of **n** positive integers.
 
 He wonders if he can partition this array into consecutive groups such that every group is a permutation of any size.
 
