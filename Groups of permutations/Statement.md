@@ -1,11 +1,5 @@
 ## Groups of permutations (UNFINISHED)
 
-```
-Input file: 	grp.in
-Output file: 	standard output
-Balloon Color: 	?
-```
-
 Yessine has an array **a** of positive integers.
 
 He wonder if he can partition this array into consecutive groups such that every group is a permutation of any size.
