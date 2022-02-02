@@ -1,4 +1,4 @@
-#### Problem Tutorial: “Rami scheme (Easy Version)” 
+#### Problem Tutorial: “Rami scheme (Easy Version)” UNFINISHED 
 
 **Prerequisite:** Binary Search / Z-function
 
