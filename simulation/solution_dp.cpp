@@ -24,6 +24,19 @@ int main()
 	std::vector<std::vector<IK>>p(n+1, std::vector<IK>(m+1,0));
 	for (auto& a : A)
 		std::cin >> a;
+	int a_max = 0, S = 0;
+	for (auto a : A)
+	{
+		a_max = std::max(a_max, a);
+		S += a;
+	}
+	if (a_max >= K)
+	{
+		std::cout << 1 << '\n';
+		return false;
+	}
+	m -= S;
+	n -= s;
 	for (int j = K; j <= m; j++)
 		p[1][j] = 1;
 	for (int i = 2; i <= n; i++)
