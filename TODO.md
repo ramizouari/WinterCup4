@@ -59,3 +59,15 @@
 - [ ] Solution's correctness Proof:
 - [ ] Generating test cases
 
+
+### Two Shortest Paths:
+- [ ] Problem Statement:
+- [X] Problem Solution: **Yessine**
+- [ ] Solution's correctness Proof:
+- [ ] Generating test cases:
+
+### Groups of permutations:
+- [X] Problem Statement: **Yessine** (Partially)
+- [X] Problem Solution: **Yessine**
+- [ ] Solution's correctness Proof:
+- [ ] Generating test cases:
