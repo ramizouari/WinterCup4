@@ -39,7 +39,7 @@
 - [ ] Testing the $3$ solutions on test cases
 
 
-### Exam:
+### Exam (REJECTED):
 - [x] Problem Statement: **Yessine/Oussama**
 - [ ] Problem Solution:
 - [ ] Solution's correctness Proof:
@@ -49,15 +49,17 @@
 
 - [x] Problem Statement: **Rami**
 - [x] Problem Solution: **Rami**
-- [ ] Solution's correctness Proof:
+- [x] Solution's correctness Proof: **Rami**
 - [ ] Generating test cases
+- [ ] Comparing Solution with a Monte Carlo Experience on test cases
 
 ### Simulation:
 
 - [x] Problem Statement: **Rami**
 - [x] Problem Solution: **Rami**
-- [ ] Solution's correctness Proof:
+- [x] Solution's correctness Proof: **Rami**
 - [ ] Generating test cases
+- [ ] Comparing Solution with a Monte Carlo Experience on test cases
 
 
 ### Two Shortest Paths:
@@ -68,6 +70,9 @@
 
 ### Groups of permutations:
 - [X] Problem Statement: **Yessine** (Partially)
-- [X] Problem Solution: **Yessine**
+- [x] Problem Solution: 
+  - [x] Brute Force: **Yessine**
+  - [x] Divide & Conquer: **Rami** 
 - [ ] Solution's correctness Proof:
 - [ ] Generating test cases:
+- [ ] Testing the $2$ solutions on test cases
