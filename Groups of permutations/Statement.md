@@ -10,9 +10,9 @@ A permutation is an array consisting of $n$ distinct integers from $1$ to $n$ in
 
 #### Input :
 
-The first line of each test case contains one integer $n \ (1≤n≤200)$ — the size of **a** 
+The first line of each test case contains one integer $n \ (1≤n≤2000)$ — the size of **a** 
 
-The second line contains $n$ positive integers $a_1, a_2, …,\ a_n \ (1≤a_i≤ 200)$  
+The second line contains $n$ positive integers $a_1, a_2, …,\ a_n \ (1≤a_i≤ 2000)$  
 
 #### Output :
 
