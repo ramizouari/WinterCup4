@@ -2,6 +2,10 @@
 #include <vector>
 #include <cmath>
 
+/*
+* Solution correct only for K>m/2
+*/
+
 using real = long double;
 using integer = long long;
 constexpr int M_max = 4000;

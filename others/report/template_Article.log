@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 21.12.10) (preloaded format=pdflatex 2022.1.29)  1 FEB 2022 00:38
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 21.12.10) (preloaded format=pdflatex 2022.1.29)  3 FEB 2022 16:33
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -219,7 +219,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 595--597
 [15] [16] [17] [18] [19] [20] (template_Article.aux) ) 
 Here is how much of TeX's memory you used:
  1985 strings out of 478593
- 29870 string characters out of 2844132
+ 29960 string characters out of 2844132
  336329 words of memory out of 3000000
  20165 multiletter control sequences out of 15000+600000
  480369 words of font info for 75 fonts, out of 8000000 for 9000
@@ -256,7 +256,7 @@ ype1/public/amsfonts/symbols/msam10.pfb><C:/Users/Lenovo/AppData/Local/Programs
 /MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Users/Lenovo/AppData
 /Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm7.pfb><C:/Users/
 Lenovo/AppData/Local/Programs/MiKTeX/fonts/type1/public/rsfs/rsfs10.pfb>
-Output written on template_Article.pdf (20 pages, 337998 bytes).
+Output written on template_Article.pdf (20 pages, 338064 bytes).
 PDF statistics:
  202 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
