@@ -65,7 +65,6 @@ We will consider many cases:
    \boxed{\forall n\in\mathbb{N},\quad S_n=\sum_{k=0}^n kA^k= \frac{nA^{n+2}-(n+1)A^{n+1}+A}{(A-I_2)^2}=B^{-2}\left(nA^{n+2}-(n+1)A^{n+1}+A\right)}
    $$
    
-
 3.  Otherwise, if $B$ has two eigenvalues $0$ and $\alpha\neq 0$:
    $$
    \boxed{\forall n\in\mathbb{N}, \quad S_n = \frac{n(\alpha+1)^{n+2}-(n+1)(\alpha+1)^{n+1}+\alpha+1}{\alpha^3}B+\frac{n(n+1)}{2}\left(I_2-\alpha^{-1}B\right)}
@@ -82,7 +81,7 @@ We will consider many cases:
 
 As we know the formula of $(v_n)_{n\in\mathbb{N}}$ for each case, we can prove that:
 $$
-R \mid p(p^2-p)(p^2-1)
+R \mid p^2(p^2-p)(p^2-1)
 $$
 Actually, this is a loose multiple of $R$ and it can be proven that:
 $$

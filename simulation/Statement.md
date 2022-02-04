@@ -21,9 +21,9 @@ Now, **Rami** was given a simulation of $m$ steps on an array $A$ of size $n$ an
 
 As the probability is a rational number $\frac{p}{q},$ he wanted you to give him $p\cdot r \bmod (10^{9}+7)$ where  $r$ is the modular inverse of $q,$ In other words:
 $$
-qr \equiv 1 \ (\bmod10^9+7) 
+qr \equiv 1 \ (\bmod10^9+7)
 $$
-  
+
 
 ## Input
 
