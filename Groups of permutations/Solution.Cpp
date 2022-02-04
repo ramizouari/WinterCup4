@@ -15,10 +15,9 @@ int main()
         if (vis[i])
             continue;
         int id = -1;
+        vector<int> v;
         for (int j = i; j < n; j++) {
-            vector<int> v;
-            for (int k = i; k <= j; k++)
-                v.push_back(a[k]);
+            v.push_back(a[j]);
             sort(v.begin(), v.end());
             int sz = v.size();
             bool can = true;
