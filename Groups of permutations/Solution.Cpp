@@ -15,16 +15,12 @@ int main()
         if (vis[i])
             continue;
         int id = -1;
-        vector<int> v;
+        int mx = 0;
+        long long sum = 0;
         for (int j = i; j < n; j++) {
-            v.push_back(a[j]);
-            sort(v.begin(), v.end());
-            int sz = v.size();
-            bool can = true;
-            for (int k = 0; k < sz; k++)
-                if (v[k] != k+1)
-                    can = false;
-            if (can)
+            sum+= a[j];
+            mx = max(mx, a[j]);
+            if (mx == j-i+1 && sum == 1LL*mx*(mx+1)/2)
                 id = j;
         }
         if (id != -1) {
