@@ -71,7 +71,7 @@
 ### Groups of permutations:
 - [X] Problem Statement: **Yessine** (Partially)
 - [x] Problem Solution: 
-  - [x] Brute Force: **Yessine** (O(n^2logn))
+  - [x] Brute Force: **Yessine** (O(n^2))
   - [x] Divide & Conquer: **Rami** 
 - [ ] Solution's correctness Proof:
 - [ ] Generating test cases:
