@@ -15,12 +15,12 @@ bool permutation_separable(const std::deque<int> &A)
 		return false;
 	std::vector<int> C(*u+1);
 	int distinct=0;
-	for(int i=a;i<a+*u;i++)
+	for (int i = a; i < a + *u; i++)
+	{
 		if (C[A[i]] == 0)
-		{
 			distinct++;
-			C[A[i]]++;
-		}
+		C[A[i]]++;
+	}
 	std::deque<int> A1,A2;
 	for (int k = 0; k < a; k++)
 		A1.push_back(A[k]);
@@ -28,7 +28,7 @@ bool permutation_separable(const std::deque<int> &A)
 		A2.push_back(A[k]);
 	if (distinct == *u && permutation_separable(A1) && permutation_separable(A2))
 		return true;
-	for (int i = a+1; i < b-*u; i++)
+	for (int i = a+1; i <= b-*u; i++)
 	{
 		C[A[i - 1]]--;
 		if (C[A[i - 1]] == 0)
