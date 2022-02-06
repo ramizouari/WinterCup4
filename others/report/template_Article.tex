@@ -172,10 +172,20 @@ So we can conclude that:
 &= \frac{n(\alpha+1)^{n+2}-(n+1)(\alpha+1)^{n+1}+\alpha+1}{\alpha^3}B+\sum_{k=0}^nk(I_2-\alpha^{-1}B)
 \end{align*}
 \paragraph{For $p=2$:}
-we have, $\sum_{k=0}^nk=n+1-\lceil \frac{n+1}{2}\rceil,$\footnote{As an exception, the term $\frac{n+1}{2}$ inside the ceil function is interpreted as an Euclidean division between two natural numbers, and not modular division between two cyclic elements.} which implies:
+we have, $\sum_{k=0}^nk=n+1-\lceil \frac{n+1}{2}\rceil,$\footnote{As an exception, the term $\frac{n+1}{2}$ inside the ceil function is interpreted as an Euclidean division between two natural numbers, and not modular division between two cyclic elements.}. 
+\newline 
+We have also $\alpha=1$, which implies:
+\begin{align*}
+\forall n\in\mathbb{N}, \quad S_n &= \frac{n(\alpha+1)^{n+2}-(n+1)(\alpha+1)^{n+1}+\alpha+1}{\alpha^3}B+\left(n+1-\left\lceil \frac{n+1}{2}\right\rceil\right)\left(I_2-\alpha^{-1}B\right)\\
+&=\left(n+1-\left\lceil \frac{n+1}{2}\right\rceil\right)\left(I_2-B\right)\\
+&=\left(n+1-\left\lceil \frac{n+1}{2}\right\rceil\right)\left(I_2+B\right)\\
+&=\left(n+1-\left\lceil \frac{n+1}{2}\right\rceil\right)A
+\end{align*}
+As a conclusion:
 $$
-\boxed{\forall n\in\mathbb{N}, \quad S_n = \frac{n(\alpha+1)^{n+2}-(n+1)(\alpha+1)^{n+1}+\alpha+1}{\alpha^3}B+\left(n+1-\left\lceil \frac{n+1}{2}\right\rceil\right)\left(I_2-\alpha^{-1}B\right)}
+\boxed{\forall n\in\mathbb{N}, \quad S_n=\left(n+1-\left\lceil \frac{n+1}{2}\right\rceil\right)A}
 $$
+
 \paragraph{For $p>2$:}
 we have, $\sum_{k=0}^nk\frac{n(n+1)}{2},$ which implies:
 $$

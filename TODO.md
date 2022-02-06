@@ -9,8 +9,8 @@
 
 - [ ] Problem Statement
 - [x] Problem Solution:
-  - [x] Off-line: **Yessine**
-  - [x] On-line: **Rami**
+  - [x] Off-line: **Yessine,** $\mathcal{O}(n\log n)$
+  - [x] On-line: **Rami,** $\mathcal{O}\left(n(\log n)^2\right)$
 - [x] Solution's correctness Proof: **Yessine**
 - [ ] Generating test cases
 - [ ] Testing the $2$ solutions on test cases
@@ -20,7 +20,7 @@
 ### Decrypting the password:
 
 - [x] Problem Statement: **Yessine/Oussama**
-- [x] Problem Solution: **Yessine**
+- [x] Problem Solution: **Yessine,** $\mathcal{O}(n)$
 - [x] Solution's correctness Proof: **Yessine**
 - [ ] Generating test cases
 
@@ -33,8 +33,8 @@
   - [x] Easy Version: **Yessine**
   - [x] Hard Version: **Rami,** $2$ solutions
 - [x] Solution's correctness Proof: 
-  - [x] Easy Version: **Yessine**
-  - [x] Hard Version: **Rami** 
+  - [x] Easy Version: **Yessine ,** $\mathcal{O}(n+p^3)$
+  - [x] Hard Version: **Rami,** $\mathcal{O}\left(s\log\left(\max_{i\in\{1,\dots,s\}}(n_{i})\right)+md_0(T)\log N + \sqrt p\right)$
 - [ ] Generating test cases
 - [ ] Testing the $3$ solutions on test cases
 
@@ -48,7 +48,7 @@
 ### 1D Monopoly:
 
 - [x] Problem Statement: **Rami**
-- [x] Problem Solution: **Rami**
+- [x] Problem Solution: **Rami,** $\mathcal{O}(nM)$
 - [x] Solution's correctness Proof: **Rami**
 - [ ] Generating test cases
 - [ ] Comparing Solution with a Monte Carlo Experience on test cases
@@ -56,7 +56,7 @@
 ### Simulation:
 
 - [x] Problem Statement: **Rami**
-- [x] Problem Solution: **Rami**
+- [x] Problem Solution: **Rami,** $\mathcal{O}(nmK)$
 - [x] Solution's correctness Proof: **Rami**
 - [ ] Generating test cases
 - [ ] Comparing Solution with a Monte Carlo Experience on test cases
@@ -64,15 +64,15 @@
 
 ### Two Shortest Paths:
 - [ ] Problem Statement:
-- [X] Problem Solution: **Yessine**
+- [X] Problem Solution: **Yessine, ** $\mathcal{O}(1)$
 - [ ] Solution's correctness Proof:
 - [ ] Generating test cases:
 
 ### Groups of permutations:
 - [X] Problem Statement: **Yessine** (Partially)
 - [x] Problem Solution: 
-  - [x] Brute Force: **Yessine** O(n^2)
-  - [x] Divide & Conquer: **Rami** 
+  - [x] Brute Force: **Yessine,** $\mathcal{O}(n^2)$
+  - [x] Divide & Conquer: **Rami,** $\tilde{\mathcal{O}}(n^2)$ 
 - [ ] Solution's correctness Proof:
 - [ ] Generating test cases:
 - [ ] Testing the $2$ solutions on test cases
