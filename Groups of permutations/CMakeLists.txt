@@ -11,4 +11,4 @@ find_package(Boost)
 
 set(CMAKE_CXX_STANDARD 20)
         
-add_executable(PermutationDC solution_greedy.cpp )
+add_executable(PermutationDC solution_dc.cpp)
