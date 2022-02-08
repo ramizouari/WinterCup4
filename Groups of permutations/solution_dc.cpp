@@ -9,7 +9,11 @@ bool permutation_separable(const std::deque<int> &A)
 		return true;
 	int n = A.size();
 	auto u = std::max_element(A.begin(), A.end());
-	auto s = std::distance(A.begin(), u);
+	std::vector<int> max_pos;
+	for (int i = 0; i < n; i++)
+		if (A[i] == *u)
+			max_pos.push_back(i);
+	auto s = max_pos[max_pos.size() / 2];
 	int a = std::max<int>(s - *u+1, 0),b=std::min<int>(s+*u,n);
 	if (b - a < *u)
 		return false;
