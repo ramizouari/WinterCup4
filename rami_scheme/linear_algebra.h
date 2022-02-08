@@ -676,7 +676,10 @@ public:
         return m;
     };
 
-    bool operator==(const s_matrix& O) const = default;
+    bool operator==(const s_matrix& O) const
+    {
+        return M == O.M;
+    }
 
     auto& operator[](int k)
     {

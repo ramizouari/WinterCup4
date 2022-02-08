@@ -984,7 +984,10 @@ public:
     {
     }
 
-    bool operator==(const d_quadratic_extension& O) const = default;
+    bool operator==(const d_quadratic_extension& O) const
+    {
+        return p == O.p;
+    }
 
     auto conj() const
     {

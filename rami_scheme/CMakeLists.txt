@@ -22,6 +22,14 @@ add_executable(RamiSchemeMatrix linear_algebra.h modular_arithmetic.h number_the
 add_executable(RamiSchemePatternMatching linear_algebra.h modular_arithmetic.h number_theory.h
         ring_extension.h polynomial.h solution_pattern_matching.cpp )
 
-target_include_directories(RamiSchemeMatrix PUBLIC "C:/local/boost_1_78_0/boost)")
-target_include_directories(RamiSchemeRingExtension PUBLIC "C:/local/boost_1_78_0/boost)")
-target_include_directories(RamiSchemePatternMatching PUBLIC "C:/local/boost_1_78_0/boost)")
+add_executable(RamiSchemeExhaustiveGenerator linear_algebra.h modular_arithmetic.h number_theory.h
+        ring_extension.h polynomial.h exhaustive_generator.cpp )
+
+add_executable(RamiSchemeGenerator linear_algebra.h modular_arithmetic.h number_theory.h
+ring_extension.h polynomial.h generator.cpp )
+
+target_include_directories(RamiSchemeMatrix PUBLIC "C:/local/boost_1_78_0/boost")
+target_include_directories(RamiSchemeRingExtension PUBLIC "C:/local/boost_1_78_0/boost")
+target_include_directories(RamiSchemePatternMatching PUBLIC "C:/local/boost_1_78_0/boost")
+target_include_directories(RamiSchemeExhaustiveGenerator PUBLIC "C:/local/boost_1_78_0/boost")
+

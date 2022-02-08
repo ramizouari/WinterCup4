@@ -26,7 +26,10 @@ public:
         else return degree() == 0 && p.front() == a;
     }
 
-    bool operator==(const polynomial& O) const = default;
+    bool operator==(const polynomial& O) const
+    {
+        return p == O.p;
+    }
 
     void reduce()
     {

@@ -159,8 +159,7 @@ int main()
 		}
 		while (offset > 0 && V[offset - 1] == V[offset + R - 1])
 			offset--;
-		std::cout << "Period: " << R << '\n';
-		std::cout << "Offset: " << offset << '\n';
+		std::cout << R << '\n';
 		for (auto i : I)
 			std::cout << (integer)V[i < P_guess ? i : (i - offset) % R + offset] << ' ';
 	}
@@ -214,8 +213,7 @@ int main()
 			return  v[0][0];
 		};
 		multiplicative_order(V_map,V, order,0);
-		std::cout << "Period: " << calculate_period(order) << '\n';
-		std::cout << "Offset: " << 0 << '\n';
+		std::cout << calculate_period(order) << '\n';
 		for (auto i : I)
 			std::cout << (integer)V(i) << ' ';
 	}
@@ -277,8 +275,7 @@ int main()
 			multiplicative_order(V_map,V, order,offset);
 			while (offset && V_map(order, offset-1) == V(offset-1))
 				offset--;
-			std::cout << "Period: " << calculate_period(order) << '\n';
-			std::cout << "Offset: " << offset << '\n';
+			std::cout << calculate_period(order) << '\n';
 			for (auto i : I)
 				std::cout << (integer)V(i) << ' ';
 		}
@@ -312,7 +309,7 @@ int main()
 					for (int i = 0; i < m; i++)
 						alpha *= p;
 					s = pow(s, alpha);
-					n *= pow(p, m);
+					n *= pow<IK>(p, m);
 				}
 				n += offset;
 				s *= pow(x, offset);
@@ -329,8 +326,7 @@ int main()
 			multiplicative_order(V_map,V , order, offset);
 			while (offset && V_map(order, offset-1) == V(offset-1))
 				offset--;
-			std::cout << "Period: " << calculate_period(order) << '\n';
-			std::cout << "Offset: " << offset << '\n';
+			std::cout << calculate_period(order) << '\n';
 			for (auto i : I)
 				std::cout << (integer)V(i) << ' ';
 		}
