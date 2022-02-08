@@ -7,13 +7,13 @@
 
 ### MAD:
 
-- [ ] Problem Statement
+- [x] Problem Statement
 - [x] Problem Solution:
   - [x] Off-line: **Yessine,** $\mathcal{O}(n\log n)$
   - [x] On-line: **Rami,** $\mathcal{O}\left(n(\log n)^2\right)$
 - [x] Solution's correctness Proof: **Yessine**
-- [ ] Generating test cases
-- [ ] Testing the $2$ solutions on test cases
+- [x] Generating test cases
+- [x] Testing the $2$ solutions on test cases
 
 
 
@@ -22,7 +22,7 @@
 - [x] Problem Statement: **Yessine/Oussama**
 - [x] Problem Solution: **Yessine,** $\mathcal{O}(n)$
 - [x] Solution's correctness Proof: **Yessine**
-- [ ] Generating test cases
+- [x] Generating test cases
 
 
 
@@ -35,8 +35,8 @@
 - [x] Solution's correctness Proof: 
   - [x] Easy Version: **Yessine ,** $\mathcal{O}(n+p^3)$
   - [x] Hard Version: **Rami,** $\mathcal{O}\left(s\log\left(\max_{i\in\{1,\dots,s\}}(n_{i})\right)+md_0(T)\log N + \sqrt p\right)$
-- [ ] Generating test cases
-- [ ] Testing the $3$ solutions on test cases
+- [x] Generating test cases
+- [x] Testing the $3$ solutions on test cases
 
 
 ### Exam (REJECTED):
@@ -71,8 +71,9 @@
 ### Groups of permutations:
 - [X] Problem Statement: **Yessine** (Partially)
 - [x] Problem Solution: 
-  - [x] Brute Force: **Yessine,** $\mathcal{O}(n^2)$
-  - [x] Divide & Conquer: **Rami,** $\tilde{\mathcal{O}}(n^2)$ 
+  - [x] DFS: **Yessine,** $\mathcal{O}(n^2)$
+  - [x] DP: **Oussama,** $\mathcal{O}(n^2)$
+  - [x] Divide & Conquer with Memoization: **Rami,** conjectured to be $\mathcal{O}(n \sqrt n)$ 
 - [ ] Solution's correctness Proof:
-- [ ] Generating test cases:
-- [ ] Testing the $2$ solutions on test cases
+- [x] Generating test cases:
+- [x] Testing the $2$ solutions on test cases
