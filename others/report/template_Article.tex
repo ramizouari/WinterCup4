@@ -378,6 +378,23 @@ $$
 \boxed{\forall x \in\mathbb{K},\forall n,m\in\mathbb{N},\quad \Psi(x,n,m+1)=x\frac{\partial \Psi}{\partial x}(x,n,m)}
 $$
 
+\paragraph{Recurrence relation for $\Psi:$}
+for $x\neq 0,$ we have:
+\begin{align*}
+	\frac{\partial \Psi}{\partial x}(x,n,m)&=\sum_{i=1}^ni^{m+1}x^{i-1}\\
+&=\sum_{i=0}^{n-1}(i+1)^{m+1}x^{i}\\
+&=\sum_{i=0}^{n-1}\sum_{j=0}^{m+1}{m+1 \choose j}i^{j}x^i\\
+	\implies \Psi(x,n,m+1)&=x\frac{\partial \Psi}{\partial x}(x,n,m)
+\end{align*}
+
+This relation can be trivially extended to the case $x=0$
+
+As a conclusion:
+$$
+\boxed{\forall x \in\mathbb{K},\forall n,m\in\mathbb{N},\quad \Psi(x,n,m+1)=x\frac{\partial \Psi}{\partial x}(x,n,m)}
+$$
+
+
 \paragraph{Recurrence relation for $n=1,\ m<p-1: $} Let $n,m\in\mathbb{N}$ with $m<p-1.$ We have:
 \begin{align*}
 	\sum_{i=0}^{n}(i+1)^{m+1}-i^{m+1}&=(n+1)^{m+1}\\

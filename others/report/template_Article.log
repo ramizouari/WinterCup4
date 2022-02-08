@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 21.12.10) (preloaded format=pdflatex 2022.1.29)  6 FEB 2022 23:27
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 21.12.10) (preloaded format=pdflatex 2022.1.29)  8 FEB 2022 16:30
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -206,17 +206,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 321--323
 
  []
 
-[10]
-Overfull \hbox (39.52808pt too wide) detected at line 392
+[10] [11]
+Overfull \hbox (39.52808pt too wide) detected at line 409
 []
  []
 
-[11] [12] [13] [14] [15]
-Underfull \hbox (badness 10000) in paragraph at lines 605--607
+[12] [13] [14] [15] [16]
+Underfull \hbox (badness 10000) in paragraph at lines 622--624
 
  []
 
-[16] [17] [18] [19] [20] [21] (template_Article.aux) ) 
+[17] [18] [19] [20] [21] [22] (template_Article.aux) ) 
 Here is how much of TeX's memory you used:
  1985 strings out of 478593
  29960 string characters out of 2844132
@@ -256,9 +256,9 @@ ype1/public/amsfonts/symbols/msam10.pfb><C:/Users/Lenovo/AppData/Local/Programs
 /MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Users/Lenovo/AppData
 /Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm7.pfb><C:/Users/
 Lenovo/AppData/Local/Programs/MiKTeX/fonts/type1/public/rsfs/rsfs10.pfb>
-Output written on template_Article.pdf (21 pages, 339238 bytes).
+Output written on template_Article.pdf (22 pages, 340159 bytes).
 PDF statistics:
- 205 PDF objects out of 1000 (max. 8388607)
+ 208 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
