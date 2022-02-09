@@ -7,6 +7,7 @@
 
 integer &M=d_cyclic::m;
 using IK = d_cyclic;
+using natural = std::uint64_t;
 
 
 bool probable_period_check(const auto& V1, const auto& V2, const std::vector<std::pair<int,int>> &guess,
@@ -49,7 +50,7 @@ void multiplicative_order(const auto &V1,const auto &V2,std::vector<std::pair<in
 	}
 }
 
-integer calculate_period(const std::vector<std::pair<int,int>>& order)
+natural calculate_period(const std::vector<std::pair<int,int>>& order)
 {
 	integer N=1;
 	for (auto [p, m] : order) for (int i = 0; i < m; i++)

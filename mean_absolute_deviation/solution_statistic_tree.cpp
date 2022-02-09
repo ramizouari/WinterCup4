@@ -821,12 +821,12 @@ int main()
 		r = q + 1;
         */
 		std::cin >> l >> r;
+        l--;
 		auto [S1, S2, o] = T.query(l, r);
 		int m = r - l;
 		double a = 2. * o / m, b = 2. * (m - o) / m;
 		R.push_back((a * S2 - b * S1) / m);
 	}
-	std::cout.precision(4);
 	for (auto r : R)
 		std::cout << r << '\t';
 }
