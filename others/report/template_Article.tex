@@ -5,6 +5,11 @@
 \usepackage{mathrsfs}
  \usepackage{amssymb}
  \usepackage[bottom]{footmisc}
+ \usepackage{empheq}
+ 
+ \newcommand*\widefbox[1]{\fbox{\hspace{2em}#1\hspace{2em}}}
+ 
+ 
 %\usepackage{authblk}
 
 \DeclareMathOperator{\ord}{ord}
@@ -65,6 +70,190 @@ $$
 - After that, he knows that he cannot calculate all terms of the sequence $(v_k)_{k\in\mathbb{N}}$, and he only needs $s$ terms $v_{n_1},\dots,v_{n_s}$ of the sequence. So he asks your help for it
 
 \pagebreak
+\section{Solution using Pattern Matching}
+
+\pagebreak
+\section{Solution using Linear Algebra}
+\subsection{Notes}
+This solution is not powerful enough to give an estimation about the fundamental period. So to use it, we shall extract the initial guess of the fundamental period from another solution.
+\newline
+Still, It won't be accepted due to time constraints despite having the same complexity as the accepted ones.
+\subsection{Definitions}
+\begin{tabularx}{0.8\textwidth} { 
+		| >{\raggedright\arraybackslash}X 
+		| >{\centering\arraybackslash}X 
+		| >{\raggedleft\arraybackslash}X | }
+	\hline
+	Term & Definition \\
+	\hline
+	$\mathbb{N}$ & Set of natural numbers: $\{0,1,\dots\}$  \\
+	\hline
+	
+	$\mathbb{P}$ & Set of prime numbers  \\
+	\hline
+	$p$ & the prime number used for the Scheme  \\
+	\hline
+	$\mathbb{F}_p$  or $\mathbb{Z}/p\mathbb{Z}$ & the cyclic field of order $p$  \\
+	\hline
+	$\mathbb{K} \ $\footnote{Note that $\mathbb{K}$ in this solution is a field with characteristic $p.$ More precisely, it is either $\mathbb{F}_p$ or $\mathbb{F}_{p^2}$} & a field  \\
+	\hline
+	$\mathcal{R}$ & a commutative ring  \\
+	\hline
+	$\mathcal{R}[x]$ & the ring of polynomials over $\mathcal{R}$  \\
+	\hline
+	$\mathtt{M}_m(\mathbb{K})$ & The associative algebra of $m\times m$ matrices over $\mathbb{K}$  \\
+	\hline
+	$\mathtt{GL}_m(\mathbb{K})$ & The group of $m\times m$ invertible matrices over $\mathbb{K}$  \\
+	\hline
+	$I_m$ & the identity matrix of 	$\mathtt{M}_m(\mathbb{K})$ \\
+	\hline
+		$\langle  M \rangle$ & $=\left\{M^0,M^1,M^2,\dots\right\}$\\
+	\hline
+	$a,b$ & parameters of the scheme \\
+	\hline
+	$u_0,u_1$ & seeds \\
+	\hline
+	$(w_n)_{n\in\mathbb{N}}$ & a sequence in $\mathbb{F}_p^{\mathbb{N}}$ \\
+	\hline
+	$\Delta$ & forward difference operator \\
+	\hline 
+	$\Phi(w)$ & $$ =(w_{n+2}-aw_{n+1}-bw_n)_{n\in\mathbb{N}}$$\\
+	\hline
+	$\mathtt{EP}(S)$ & eventual fundamental period of a sequence $(S_n)_{n\in\mathbb{N}}$  \\
+	\hline
+\end{tabularx}
+\subsection{Strategy}
+The sequence $(u_n)_{n\in\mathbb{N}}$ satisfies second order linear homogeneous recurrence relation.
+\newline
+We will show that $(v_n)_{n\in\mathbb{N}}$ will also satisfies a linear homogeneous recurrence relation of a higher order $r$.
+
+
+Let $(V_n)_{n\in\mathbb{N}} \in \left(\mathbb{F}_p^r\right)^\mathbb{N},M\in\mathtt{M}_r(\mathbb{F}_p)$ such that:
+$$
+	\begin{cases}
+		V_0&=\begin{pmatrix}
+			v_0 \\ \vdots \\ v_{r-1}
+		\end{pmatrix}\\
+		V_n &=MV_{n-1}
+	\end{cases}
+$$
+Assuming we can quickly find $r$ and $M,$ the problem is thus reduced to the calculation of:
+$$
+\boxed{V_n=M^nV_0 \quad \forall n\in\{n_1,\dots, n_s\}}
+$$ 
+The multiplicative order of $(v_n)_{n\in\mathbb{N}}$ is equal to that of $(V_n)_{n\in\mathbb{N}},$ which is a divisor of the cardinality of the biggest group $G \subset \langle M \rangle.$
+\newline
+To be more precise:
+$$
+\lvert G \rvert = \mathtt{EP}\left((M^n)_{n\in\mathbb{N}}\right)
+$$
+\subsection{Recurrence Relation}
+\paragraph{Recurrence relation of $\Delta v:$}
+We have:
+\begin{align*}
+\forall n\in\mathbb{N},\quad	\Phi(\Delta v)_n&=\Delta v_{n+2}-a\Delta v_{n+1}-b\Delta v_n\\
+	&=(n+2)u_{n+2}-a(n+1)u_{n+1}-bnu_n\\
+	&=2u_{n+2}-au_{n+1}\\
+\end{align*}
+As a consequence, we have then:
+$$
+\boxed{\Phi^2(\Delta v)=0}
+$$
+\paragraph{Recurrence relation of $v:$} The relation above can also be seen as a recurrence relation of $(v_n).$ It can be unpacked to:
+\begin{align*}
+	\forall n\in\mathbb{N}, \quad \Phi^2(\Delta v)_n
+	&=\Delta v_{n+4}-a\Delta v_{n+3}-b\Delta v_{n+2}-a\Delta v_{n+3}+a^2\Delta v_{n+2}+ab\Delta v_{n+1}\\
+	& \quad -b\Delta v_{n+2}+ab\Delta v_{n+1}+b^2\Delta v_{n}\\
+	&=\Delta v_{n+4}-2a\Delta v_{n+3}+ (a^2-2b)\Delta v_{n+2} +2ab\Delta v_{n+1}+b^2\Delta v_n\\
+	&=v_{n+5}-(1+2a)v_{n+4}+(a^2-2b+2a) v_{n+3}+(2ab-a^2+2b)v_{n+2}\\
+	&\quad +(b^2-2ab)v_{n+1}-b^2v_n\\
+	&= 0
+\end{align*}
+As a conclusion, we have $r=5,$ and:
+\begin{empheq}[box=\widefbox]{align*}
+			\forall n\in\mathbb{N} \quad v_{n+5}&=(1+2a)v_{n+4}-(a^2-2b+2a) v_{n+3} \\ & \quad -(2ab-a^2+2b)v_{n+2} 
+			-(b^2-2ab)v_{n+1}+b^2v_n
+\end{empheq}
+
+\paragraph{Finding the matrix $M:$} It is the companion matrix of this linear homogeneous recurrence relation. It is equal to:
+\begin{equation*}
+	M=\begin{pmatrix}
+		 0 & 1 & 0 & 0 & 0 \\
+		 0 & 0 & 1 & 0 & 0 \\
+		 0 & 0 & 0 & 1 & 0 \\
+		 0 & 0 & 0 & 0 & 1 \\
+		 b^2 & b(2a-b) & a^2-2b-2ab & 2a+2b-a^2 & 1+2a \\
+	\end{pmatrix}
+\end{equation*}
+\subsection{Period Estimation}
+It is clear that $\det M=b^2.$ 
+\subsubsection{Case $1: \quad b\neq 0$}
+We have then $M\in\mathtt{GL}_5(\mathbb{F_p}),$ and thus $\langle M \rangle$ is a subgroup of $\mathtt{GL}_5(\mathbb{F}_p).$ By Lagrange's theorem:
+$$
+\lvert \langle M \rangle \rvert \ \text{divides} \ \lvert\mathtt{GL}_5(\mathbb{F}_p) \rvert 
+$$
+As a conclusion:
+$$
+\mathtt{EP}(v) \mid  \lvert\mathtt{GL}_5(\mathbb{F}_p) \rvert  = \prod_{i=0}^4 (p^5-p^i)
+$$
+
+\subsubsection{Case $2: \quad b = 0, \ \& \ a\neq 0$}
+Let $\Lambda(w) = (w_{n+1}-aw_n)_{n\in\mathbb{N}}.$
+\newline 
+We have then
+\begin{align*}
+	\forall n\in\mathbb{N}^*, \Lambda^2(\Delta v)&=\Lambda (\Delta v)_{n+1} - a \Lambda (\Delta v)_n\\
+	&= \Lambda((n+1)u)_{n+1}- a\Lambda(nu)_n\\
+	&= \Lambda(u)_n\\
+	&= 0 \\
+	&= \Delta v_{n+2}-2a\Delta v_{n+1} + a^2 \Lambda (\Delta v)_n\\
+	&= v_{n+3}-(1+2a)v_{n+2}+a(a-2)v_{n+1}-a^2v_n
+\end{align*}
+Let $V'_n=\begin{pmatrix}
+	v_n \\ v_{n+1} \\ v_{n+2}
+\end{pmatrix}.$ We have:
+$$
+\forall n\in\mathbb{N}^*, V'_n = M_*^{n-1}V'_1
+$$
+With \begin{equation*}
+	M_*=\begin{pmatrix}
+		0 & 1 & 0\\
+		0 & 0 & 1\\
+		a^2 & a(2-a) & 1+2a
+	\end{pmatrix}
+\end{equation*}
+So essentially, $\mathtt{EP}(v)$ is a divisor of:
+\begin{equation*}
+	\mathtt{EP}(v) \mid \ \lvert \mathtt{GL}_3(\mathbb{F}_p) \rvert  = \prod_{i=0}^2 (p^3-p^i) = p^3(p-1)^3(p+1)(p^2+p+1)
+\end{equation*}
+\subsubsection{Case $3: \quad a=b=0:$} In this case, we have:
+\begin{equation*}
+ \mathtt{EP}(v)=1
+\end{equation*}
+\subsection{Limitations}
+This method gives an expression for $(v_n)_{n\in\mathbb{N}}.$ But is does not give a practical period.
+\newline
+If we use the result that $\mathtt{EP}(v) \mid p(p^2-1)(p^2-p),$ this method will be more practical, but it is still slow due to the size of the matrix.
+\pagebreak
+\section{Solution using Linear Search}
+\subsection{Notes}
+This is only a solution of the easy version of the problem.
+\newline
+It is dependent of the fact that $(v_n)_{n\in\mathbb{N}}$ satisfies a linear homogeneous recurrence relation of order $5$, which is proven in the previous solution.
+\subsection{Strategy}
+As $(v_n)_{n\in\mathbb{N}}$ satisfies a linear homogeneous recurrence relation, it is a function of the last 5 terms.
+\newline 
+Let $K$ be the offset from which the sequence will become periodic, we have :
+$$\boxed{R = \min_{t\in\mathbb{N}^*}\left\{t \ / \quad v_{N+i}=v_i \ \forall i \in \{0,1,2,3,4\}\right\} }$$
+Which can be calculated by bruteforce.
+\newline
+Furthermore, as $N\leq 10^6$ in the easy version, we can calculate directly the desired terms.
+\subsection{Complexity}
+$$
+\mathcal{O}(N\log(K+1)+N+s )
+$$
+We will later prove that $K\leq 1$
+\pagebreak
 \section{Solution using Matrices}
 \subsection{Definitions}
 \begin{tabularx}{0.8\textwidth} { 
@@ -89,7 +278,7 @@ $$
 	\hline
 	$\mathtt{GL}_m(\mathbb{K})$ & The group of $m\times m$ invertible matrices over $\mathbb{K}$  \\
 	\hline
-		$I_n$ & the idendity matrix of 	$\mathtt{M}_m(\mathbb{K})$ \\
+		$I_n$ & the identity matrix of 	$\mathtt{M}_m(\mathbb{K})$ \\
 \hline
 	$a,b$ & parameters of the scheme \\
 \hline
@@ -300,7 +489,7 @@ Where $d_0$ is the count divisors function, and $T$ the initial guess of the per
 	\hline
 	$\mathtt{GL}_m(\mathbb{K})$ & The group of $m\times m$ invertible matrices over $\mathbb{K}$  \\
 	\hline
-	$I_m$ & the idendity matrix of 	$\mathtt{M}_m(\mathbb{K})$ \\
+	$I_m$ & the identity matrix of 	$\mathtt{M}_m(\mathbb{K})$ \\
 	\hline
 	$a,b$ & parameters of the scheme \\
 	\hline
@@ -422,7 +611,52 @@ $$
  $$
  \boxed{\forall n\in\mathbb{N},\quad \Psi(1,n,p-1) =n+1 -\left\lceil\frac{n+1}{p}\right\rceil}
  $$
- 
+ \paragraph{Table of values: }the following table has the values of $\Psi.$
+ \newline
+ \begin{tabularx}{1.2\textwidth} { 
+ 		| >{\raggedright\arraybackslash}X 
+ 		| >{\centering\arraybackslash}X 
+ 		| >{\raggedleft\arraybackslash}X | }
+ 	\hline
+ 	Range & Value \\
+ 	\hline
+ 	$x\neq 1, n,m\in\mathbb{N}$ &  $x\frac{\partial \Psi}{\partial x}(x,n,m)$  \\
+ 	\hline
+ 	
+ 	$x=1,n\in\mathbb{N},m<p-1$ &  $\frac{1}{m+1}\left((n+1)^{m+1}-\sum_{i=0}^{m-1}{m+1 \choose i}\Psi(1,n,i)\right)$ \\
+ 	\hline
+ 	$x=1,n\in\mathbb{N},m=p-1$ & $n+1-\left\lceil\frac{n+1}{p}\right\rceil$  \\
+ 	\hline
+ \end{tabularx}
+
+ \paragraph{Table of important values: }the following table has the important values of $\Psi.$
+\newline
+\begin{tabularx}{1.2\textwidth} { 
+		| >{\raggedright\arraybackslash}X 
+		| >{\centering\arraybackslash}X 
+		| >{\raggedleft\arraybackslash}X | }
+	\hline
+	Term & Value \\
+	\hline
+	$\Psi(x,n,1),\quad x\neq 1$ &  $\frac{nx^{n+2}-(n+1)x^{n+1}+x}{(1-x)^2}$  \\
+	\hline
+	$\Psi(1,n,1),\quad p>2$ &  $\frac{n(n+1)}{2}$  \\
+	\hline
+	$\Psi(1,n,1),\quad p=2$ &  $n+1-\left\lceil\frac{n+1}{2}\right\rceil=\left\lfloor\frac{n+1}{2}\right\rfloor$  \\
+	\hline
+	$\Psi(x,n,2)\quad x\neq 1$&$\frac{-n^2x^{n+3}+(2n^2+2n-1)x^{n+2}-(n+1)^2x^{n+1}+x^2+x}{(1-x)^3}$\\
+	\hline
+	$\Psi(1,n,2) \quad p>3$ & $\frac{n(n+1)(2n+1)}{6}$\\
+	\hline
+	$\Psi(1,n,2) \quad p\in\{2,3\}$ & $n+1-\lceil \frac{n+1}{p}\rceil$ \\
+	\hline
+		$\frac{\partial\Psi}{\partial x}(x,n,2)\quad x\neq 1$&$\frac{-n^2x^{n+2}+(2n^2+2n-1)x^{n+1}-(n+1)^2x^n+x+1}{(1-x)^3}$\\
+	\hline
+	$\frac{\partial\Psi}{\partial x}(1,n,2)= \quad p>3$ & $\frac{n(n+1)(2n+1)}{6}$\\
+	\hline
+	$\frac{\partial\Psi}{\partial x}(1,n,2) \quad p\in\{2,3\}$ & $n+1-\lceil \frac{n+1}{p}\rceil$ \\
+	\hline
+\end{tabularx}
  \pagebreak
 \subsection{Strategy}
 The sequence $(u_n)_{n\in\mathbb{N}}$ satisfies second order linear homogeneous recurrent relation.
@@ -731,17 +965,24 @@ This analysis will be case-specific:
 	\item Case $3.3: \varphi = 1$ and $p>3: \ \mathtt{EP}(S) \mid p$
 	\item Case $3.4: \varphi \neq 1: \ \mathtt{EP}(S) \mid p(p-1)$
 \end{itemize}
-Now, let $T$ be a strict multiple of the period. By sampling $(S_n)_{n\in\mathbb{N}}$ on $m$ random points $(S_{t_1},\dots,S_{t_m})$, we can estimate the fundamental period $R=\mathtt{EP}(S)$ by finding:
-\begin{equation}\tag{2}
-	\boxed{R\approx \arg\min_{d \mid T}\left\{d/\quad S_{t_i} = S_{t_i+d} \quad \forall i\in\{1,\dots,m\}\right\}}
+\subsubsection{Probabilistic Method}
+Now, let $T$ be a period. By sampling $(S_n)_{n\in\mathbb{N}}$ on $m$ random points $(S_{t_1},\dots,S_{t_m})$, we can estimate the fundamental period $R=\mathtt{EP}(S)$ by finding:
+\begin{equation}\tag{2.1}
+	\boxed{R\approx \arg\min_{d \mid T}\left\{d/\quad v_{t_i} = v_{t_i+d} \quad \forall i\in\{1,\dots,m\}\right\}}
 \end{equation}
+\subsubsection{Deterministic Method}
+From $3.3,$ we can prove that $v_n$ is a function of its previous $5$ terms.
+\newline
+Knowing that the offset $K \leq 1,$ we have then:
+ \begin{equation}\tag{2.2}
+ 	\boxed{R = \arg\min_{d \mid T}\left\{d/\quad v_{i} = v_{i+R} \quad \forall i\in\{1,\dots,5\}\right\}}
+ 	\end{equation}
 \subsection{Complexity}
 $$
 \mathcal{O}\left(s\log\left(\max_{i\in\{1,\dots,s\}}(n_{i})\right)+md_0(T)\log N + \sqrt p\right)
 $$
 Where $d_0$ is the count divisors function, and $T$ the initial guess of the period. 
-\pagebreak
-\section{Solution using Pattern Matching}
+
 \pagebreak
 \part{Mean Absolute Deviation}
 \end{document}
