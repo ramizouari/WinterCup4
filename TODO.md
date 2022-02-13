@@ -30,13 +30,22 @@
 
 - [x] Problem Statement: **Rami**
 - [x] Problem Solution:
-  - [x] Easy Version: **Yessine**
-  - [x] Hard Version: **Rami,** $2$ solutions
+  - [x] Pattern Matching (Easy Version): **Yessine**
+  - [x] Linear Search (Easy Version): **Rami**
+  - [x] Hashing (Easy Version): **Rami**
+  - [x] Linear Algebra (Hard Version, TLE): **Rami**
+  - [x] Matrices (Hard Version): **Rami**
+  - [x] Ring Extension (Hard Version): **Rami** 
 - [x] Solution's correctness Proof: 
-  - [x] Easy Version: **Yessine ,** $\mathcal{O}(n+p^3)$
-  - [x] Hard Version: **Rami,** $\mathcal{O}\left(s\log\left(\max_{i\in\{1,\dots,s\}}(n_{i})\right)+md_0(T)\log N + \sqrt p\right)$
+  - [x] Pattern Matching (Easy Version): **Yessine,** $\mathcal{O}(s+N+p^3)$
+  - [x] Linear Search (Easy Version): **Rami,** $\mathcal{O}(s+N+p^3)$
+  - [x] Hashing (Easy Version): **Rami,** $\mathcal{O}(s+N+p^3)$
+  - [x] Linear Algebra (Hard Version): **Rami**
+  - [x] Matrices (Hard Version): **Rami**
+  - [x] Ring Extension (Hard Version): **Rami** 
+
 - [x] Generating test cases
-- [x] Testing the $3$ solutions on test cases
+- [x] Testing the $6$ solutions on test cases
 
 
 ### Exam (REJECTED):
@@ -50,16 +59,16 @@
 - [x] Problem Statement: **Rami**
 - [x] Problem Solution: **Rami,** $\mathcal{O}(nM)$
 - [x] Solution's correctness Proof: **Rami**
-- [ ] Generating test cases
-- [ ] Comparing Solution with a Monte Carlo Experience on test cases
+- [x] Generating test cases
+- [x] Comparing Solution with a Monte Carlo Experience on test cases
 
 ### Simulation:
 
 - [x] Problem Statement: **Rami**
 - [x] Problem Solution: **Rami,** $\mathcal{O}(nmK)$
 - [x] Solution's correctness Proof: **Rami**
-- [ ] Generating test cases
-- [ ] Comparing Solution with a Monte Carlo Experience on test cases
+- [x] Generating test cases
+- [x] Comparing Solution with a Monte Carlo Experience on test cases
 
 
 ### Two Shortest Paths:
