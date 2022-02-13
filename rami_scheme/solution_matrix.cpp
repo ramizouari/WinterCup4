@@ -10,6 +10,7 @@ integer &M=d_cyclic::m;
 using IK = d_cyclic;
 
 using natural = std::uint64_t;
+constexpr int recurrence_order = 5;
 
 
 bool probable_period_check(const auto& V1, const auto& V2, const std::vector<std::pair<int,int>> &guess,
@@ -30,6 +31,16 @@ bool probable_period_check(const auto& V1, const auto& V2, const std::vector<std
 	return true;
 }
 
+
+bool deterministic_period_check(const auto& V1, const auto& V2, const std::vector<std::pair<int, int>>& guess,
+	unsigned long long offset)
+{
+	for (int i = 0; i < recurrence_order; i++)
+		if (V1(guess, offset + i) != V2(offset + i))
+			return false;
+	return true;
+}
+
 /*
 * The period of V with guess
 * @Requirements
@@ -43,7 +54,7 @@ void multiplicative_order(const auto &V1,const auto &V2,std::vector<std::pair<in
 		if (!m)
 			continue;
 		m--;
-		if (probable_period_check(V1,V2,guess,offset))
+		if (deterministic_period_check(V1,V2,guess,offset))
 		{
 			multiplicative_order(V1,V2, guess,offset,i);
 			return;

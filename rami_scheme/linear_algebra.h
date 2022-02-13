@@ -758,7 +758,7 @@ public:
         return N;
     }
 
-    auto &operator*=(const s_matrix &O)
+    s_matrix &operator*=(const s_matrix &O)
     {
         static_assert(n==m);
         auto N=(*this)*O;

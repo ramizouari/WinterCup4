@@ -22,6 +22,16 @@ add_executable(RamiSchemeMatrix linear_algebra.h modular_arithmetic.h number_the
 add_executable(RamiSchemePatternMatching linear_algebra.h modular_arithmetic.h number_theory.h
         ring_extension.h polynomial.h solution_pattern_matching.cpp )
 
+add_executable(RamiSchemeHeuristic linear_algebra.h modular_arithmetic.h number_theory.h
+        ring_extension.h polynomial.h solution_heuristic.cpp )
+
+add_executable(RamiSchemeHashing linear_algebra.h modular_arithmetic.h number_theory.h
+ring_extension.h polynomial.h solution_hashing.cpp )
+
+add_executable(RamiSchemeDiff linear_algebra.h modular_arithmetic.h number_theory.h
+ring_extension.h polynomial.h solution_diff.cpp )
+
+
 add_executable(RamiSchemeExhaustiveGenerator linear_algebra.h modular_arithmetic.h number_theory.h
         ring_extension.h polynomial.h exhaustive_generator.cpp )
 

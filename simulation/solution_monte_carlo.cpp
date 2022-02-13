@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
-#include "modular_arithmetic.h"
 #include <random>
 
 /*
@@ -10,15 +9,12 @@
 
 using real = long double;
 constexpr int M_max = 4000;
-constexpr integer mod = 1e9 + 7;
-using IK = cyclic<mod>;
 constexpr int L=10000;
 int main()
 {
 	int n, m, K, s;
 	std::cin >> n >> m >> K >> s;
 	std::vector<int> A(s);
-	std::vector<std::vector<IK>>p(n+1, std::vector<IK>(m+1,0));
 	for (auto& a : A)
 		std::cin >> a;
 	int a_max = 0, S = 0;
