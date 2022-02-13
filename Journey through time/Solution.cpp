@@ -1,7 +1,6 @@
 //
 // Created by oussamaJB on 2/13/2022.
 //
-
 #include <bits/stdc++.h>
 #define ll long long
 using namespace std;
@@ -38,7 +37,7 @@ void precompute(int node, int prev){
 }
 
 void dfs(int node, int cur_max){
-    //cout << "visiting " << node << " ";
+    cout << "visiting " << node << " ";
     v[node]=true;
     priority_queue<pair<int,int>> ch;
     if(g[node]){
@@ -76,9 +75,11 @@ int main() {
     pq.push({mx[1],1});
     ll ans=0;
     while (!pq.empty()){
-        ans += pq.top().first;
-        dfs(pq.top().second,pq.top().first);
+        pair<int,int> pi = pq.top();
         pq.pop();
+        ans += pi.first;
+        dfs(pi.second,pi.first);
+        cout << ans << '\n';
     }
     cout << ans;
 }
