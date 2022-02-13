@@ -8,7 +8,7 @@
 //using real = boost::multiprecision::number<boost::multiprecision::cpp_bin_float<1000> >;
 using real = long double;
 constexpr int M_max = 300;
-
+constexpr real eps = 1e-9;
 
 int main()
 {
@@ -51,5 +51,5 @@ int main()
 				p[i][j] -= nCr[j][k] * pow(i - 1, -k) * pow(h, j) * (1 - p[i - 1][j - k]);
 		}
 	}
-	std::cout << p[n][m] << '\n';
+	std::cout << std::max<real>(p[n][m],0) << '\n';
 }
