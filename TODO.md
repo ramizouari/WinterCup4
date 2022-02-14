@@ -78,7 +78,7 @@
 - [ ] Generating test cases:
 
 ### Groups of permutations:
-- [X] Problem Statement: **Yessine** (Partially)
+- [X] Problem Statement: **Yessine**
 - [x] Problem Solution: 
   - [x] DFS: **Yessine,** $\mathcal{O}(n^2)$
   - [x] DP: **Oussama,** $\mathcal{O}(n^2)$
@@ -86,3 +86,28 @@
 - [ ] Solution's correctness Proof:
 - [x] Generating test cases:
 - [x] Testing the $2$ solutions on test cases
+
+### Journey Through Time:
+
+- [x] Problem Statement: **Oussama**
+- [x] Problem Solution: **Oussama**
+- [ ] Solution's correctness Proof:
+- [x] Generating test cases:
+- [x] Testing the solutions on test cases
+
+### Number of Squares:
+
+- [ ] Problem Statement
+- [ ] Problem Solution
+- [ ] Solution's correctness Proof:
+- [ ] Generating test cases:
+- [ ] Testing the solutions on test cases
+
+### Game of Cards:
+
+- [ ] Problem Statement
+- [ ] Problem Solution
+- [ ] Solution's correctness Proof:
+- [ ] Generating test cases:
+- [ ] Testing the solutions on test cases
+
