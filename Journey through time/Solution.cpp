@@ -1,7 +1,9 @@
 //
 // Created by oussamaJB on 2/13/2022.
 //
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
+#include <queue>
 #define ll long long
 using namespace std;
 int n,m,x,y;
@@ -37,7 +39,7 @@ void precompute(int node, int prev){
 }
 
 void dfs(int node, int cur_max){
-    cout << "visiting " << node << " ";
+    //cout << "visiting " << node << " ";
     v[node]=true;
     priority_queue<pair<int,int>> ch;
     if(g[node]){
@@ -57,7 +59,8 @@ void dfs(int node, int cur_max){
     }
 }
 
-int main() {
+int main() 
+{
     ios_base::sync_with_stdio(false);
     cin >> n >> m;
     for(int i=0;i<m;++i){
@@ -74,12 +77,13 @@ int main() {
     precompute(1,-1);
     pq.push({mx[1],1});
     ll ans=0;
-    while (!pq.empty()){
+    while (!pq.empty())
+    {
         pair<int,int> pi = pq.top();
         pq.pop();
         ans += pi.first;
         dfs(pi.second,pi.first);
-        cout << ans << '\n';
+        //cout << ans << '\n';
     }
-    cout << ans;
+    cout << ans << '\n';
 }

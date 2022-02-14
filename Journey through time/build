@@ -1,0 +1,14 @@
+#!/bin/sh
+mkdir -p test
+cd test
+mkdir -p out
+echo '*' >.gitignore
+echo '![0-9]*.in' >>.gitignore
+echo '![0-9]*.out' >>.gitignore
+echo '!.gitignore' >>.gitignore
+cd out
+cmake ../..
+cmake --build .
+grep "add_executable" ../../CMakeLists.txt  | tr '(' ' ' | cut -f 2 -d' '  | xargs -I{} cp {} -t ..
+cd ..
+#rm -rf out

@@ -1,7 +1,11 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
+#include <random>
+#include <sstream>
 #define SaveTime ios::sync_with_stdio(false), cin.tie(0);
 using namespace std;
-mt19937_64 mt(chrono::steady_clock::now().time_since_epoch().count());
+std::random_device dev;
+mt19937_64 mt(dev());
 
 const int mx = 2e5+7;
 
@@ -22,10 +26,20 @@ bool Union(int n1, int n2) {
     return true;
 }
 
-int main() {
+int main(int argc, char **argv) {
     SaveTime
-    freopen("test12.in", "w", stdout);
-    int n = 200, m = 50000;
+    int n = 2000, m = 1200;
+    if (argc > 1)
+    {
+        std::stringstream stream;
+        n = std::stoi(argv[1]);
+        m = std::stoi(argv[2]);
+        if (argc == 4)
+        {
+            unsigned long long seed = std::stoull(argv[3]);
+            mt.seed(seed);
+        }
+    }
     cout << n << ' ' << m << '\n';
     vector<int> v;
     for (int i = 0; i < n; i++) {

@@ -14,20 +14,16 @@ int main()
     std::vector<int> P;
     int remaining = n;
     int m = std::sqrt(n);
-    bool alternate = true;
-    while (remaining)
+    for (int i = 0; i < m; i++)
     {
-        int l = P.size();
-        for (int i = 1; i <= std::min(m,remaining); i++)
+        for (int i = m; i > 0; i--)
             P.push_back(i);
-        if (alternate)
-            std::sort(P.begin() + l, P.end(), std::less<>());
-        else 
-            std::sort(P.begin() + l, P.end(), std::greater<>());
-        remaining -= std::min(m,remaining);
-        alternate = !alternate;
+        P.push_back(3);
+        P.push_back(1);
+        P.push_back(2);
     }
-    std::ofstream file("test53.in");
+    n = P.size();
+    std::ofstream file("test56.in");
     file << n << '\n';
     for (auto p : P)
         file << p << ' ';
