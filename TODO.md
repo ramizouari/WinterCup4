@@ -50,7 +50,7 @@
 
 ### Exam (REJECTED):
 - [x] Problem Statement: **Oussama**
-- [ ] Problem Solution: **Oussama**
+- [x] Problem Solution: **Oussama**
 - [ ] Solution's correctness Proof:
 - [ ] Generating test cases
 
@@ -72,7 +72,7 @@
 
 
 ### Two Shortest Paths:
-- [ ] Problem Statement:
+- [x] Problem Statement: **Yessine**
 - [X] Problem Solution: **Yessine, ** $\mathcal{O}(1)$
 - [ ] Solution's correctness Proof:
 - [ ] Generating test cases:
