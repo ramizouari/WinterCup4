@@ -6,7 +6,7 @@
 
 **Rami** is living in cell $(1,m)$ and wants to go to the cell $(n,1)$. 
 
-**Rami** and **Yessine** can move to any other cell cell that share the same edge with his current cell, in other words they can move **UP**, **DOWN**, **LEFT**, or **RIGHT**.
+**Rami** and **Yessine** can move to any other cell cell that share the same edge with their current cell, in other words they can move **UP**, **DOWN**, **LEFT**, or **RIGHT**.
 
 Between all the paths, to reach their destinations, Yessine and Rami take the path that has the minimum sum path including the start cell and the end cell.
 
