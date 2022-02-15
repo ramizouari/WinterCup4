@@ -1,10 +1,10 @@
-**Yessine** and **Rami** are living in Sfax. 
+**Yessine** and **Rami** are living in **Sfax**. 
 
-Sfax is a rectangular grid of size $n*m$. Each cell has a number written on it, the number on the cell $(i,j)$ is $a_i$ $_j$. 
+**Sfax** is a rectangular grid of size $n*m$. Each cell has a number written on it, the number on the cell $(i,j)$ is $a_i$ $_j$. 
 
 **Yessine** is living in cell $(1,1)$ and wants to go to the cell $(n,m)$. 
 
-**Rami** is living in cell $(1,m)$ and wants to go to the cell $(n,1)$ 
+**Rami** is living in cell $(1,m)$ and wants to go to the cell $(n,1)$. 
 
 **Rami** and **Yessine** can move to any other cell cell that share the same edge with his current cell, in other words they can move **UP**, **DOWN**, **LEFT**, or **RIGHT**.
 
