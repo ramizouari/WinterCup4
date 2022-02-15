@@ -19,7 +19,7 @@
 
 ### Decrypting the password:
 
-- [x] Problem Statement: **Yessine/Oussama**
+- [x] Problem Statement: **Oussama**
 - [x] Problem Solution: **Yessine,** $\mathcal{O}(n)$
 - [x] Solution's correctness Proof: **Yessine**
 - [x] Generating test cases
@@ -49,8 +49,8 @@
 
 
 ### Exam (REJECTED):
-- [x] Problem Statement: **Yessine/Oussama**
-- [ ] Problem Solution:
+- [x] Problem Statement: **Oussama**
+- [ ] Problem Solution: **Oussama**
 - [ ] Solution's correctness Proof:
 - [ ] Generating test cases
 
