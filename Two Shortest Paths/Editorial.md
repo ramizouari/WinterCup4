@@ -58,11 +58,11 @@ Now, the total cost is:
 $$
 \begin{align*}\mathcal{C}_1+\mathcal{C}_2&=\mathcal{C}(E \setminus H)+\mathcal{C}(F \setminus H)+2\mathcal{C}(H)\\
 &=\sum_{i=1}^{\lvert E\vert +\lvert F\vert -\lvert H\vert }i +\sum_{i=1}^{\lvert H\vert }i\\
-&=\sum_{i=1}^{2n+2m-1 -\lvert H\vert }i+\frac{\lvert H\rvert(\lvert H\rvert+1)}{2}\\
+&=\sum_{i=1}^{2n+2m-2 -\lvert H\vert }i+\frac{\lvert H\rvert(\lvert H\rvert+1)}{2}\\
 &=\frac{(2n+2m-2-\lvert H\rvert)(2n+2m-\lvert H\rvert-1)}{2}+\frac{\lvert H\rvert(\lvert H\rvert+1)}{2}\\
 &=\frac{(2n+2m-2)(2n+2m-1)}{2}-\frac{2n+2m+2n+2m-4}{2}\lvert H\rvert +\lvert H \rvert^2 \\
 &=\frac{(2n+2m-2)(2n+2m-1)}{2}-(2n+2m-2)\lvert H\rvert+\lvert H \rvert^2\\
-&=\frac{(2n+2m-2)(2n+2m-1)}{2}-2\lvert H\rvert\left(n+m-1-\lvert H\rvert \right)
+&=\frac{(2n+2m-2)(2n+2m-1)}{2}-\lvert H\rvert\left(2n+2m-2-\lvert H\rvert \right)
 \end{align*}
 $$
 
