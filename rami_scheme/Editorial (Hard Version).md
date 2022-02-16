@@ -75,7 +75,7 @@ We will consider many cases:
    \boxed{\forall n\in\mathbb{N}\quad S_n=\frac{n(n+1)(2n+1)}{6}B+\frac{n(n+1)}{2}I_2}
    $$
 
-5. 
+5.  
 
 ## Eventual Period of $(v_n)_{n\in\mathbb{N}}:$ Robustness Index
 
@@ -83,7 +83,7 @@ As we know the formula of $(v_n)_{n\in\mathbb{N}}$ for each case, we can prove t
 $$
 R \mid p^2(p^2-p)(p^2-1)
 $$
-Actually, this is a loose multiple of $R$ and it can be proven that:
+Actually, $R_0=p^2(p^2-p)(p^2-1)$ is a period of $(v_n)_{n\in\mathbb{N}},$ which is actually a "bad" initial guess.  Actually we can prove that:
 $$
 R \quad\text{divides} \begin{cases}
 72 &\text{if }p\in\{2,3\}\\
@@ -122,4 +122,8 @@ Furthermore, the proof that $R \ \text{divides} \begin{cases}
 p(p^2-1) &\text{otherwise}
 \end{cases}$  is achieved using this solution.
 
-Both solutions are described formally on the PDF. 
+There is also a proof that $(v_n)_{n\in\mathbb{N}}$ satisfies a linear homogeneous recurrence relation of order $5.$ Thus, instead of comparing $m$ random points, we can only compare the first $5$ values, and this solution is deterministic. Its complexity is:
+$$
+\mathcal{O}\left(s\log\left(\max_{i\in\{1,\dots,s\}}(n_{i})\right)+d_0(T)\log N+ \sqrt p\right)
+$$
+All solutions with all proofs are described formally on the PDF. 
