@@ -83,7 +83,7 @@
   - [x] DFS: **Yessine,** $\mathcal{O}(n^2)$
   - [x] DP: **Oussama,** $\mathcal{O}(n^2)$
   - [x] Divide & Conquer with Memoization: **Rami,** conjectured to be $\mathcal{O}(n \sqrt n)$ 
-- [ ] Solution's correctness Proof:
+- [x] Solution's correctness Proof: **Yessine**
 - [x] Generating test cases:
 - [x] Testing the $2$ solutions on test cases
 
