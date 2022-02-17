@@ -12,7 +12,7 @@ Between all the paths, to reach their destinations, Yessine and Rami take the pa
 
 The sum path of some path is the sum of all numbers in all cells in this path. 
 
-As **Oussama** is their best friend, he wanted to put on each cell $(i,j)$ **distinct** positive integers such that the sum of the two shortest paths of **Yessine** and **Rami** is minimal as possible.
+As **Oussama** is their best friend, he wanted to put on each cell $(i,j)$ **distinct** strictly positive integers such that the sum of the two shortest paths of **Yessine** and **Rami** is minimal as possible.
 
 Oussama is stuck. Please help him determine what is the minimal sum of the two shortest paths.
 

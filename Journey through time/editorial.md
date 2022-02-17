@@ -1,6 +1,6 @@
 This Problem can be solved using a greedy algorithm.
 
-Let's start by denoting a node "good" is the subtree of that node contains at least one special node.
+Let's start by denoting a node "good" if the subtree of that node contains at least one special node.
 It is then trivial that we should only traverse good nodes and ignore the others.
 Let's pre-compute the maximum value among the good nodes for each subtree.
 The key observation in this problem is that we should prioritize visiting the nodes with the biggest pre-computed value. 
@@ -12,4 +12,3 @@ and then we can traverse them using a greedy version of Depth-First search (we v
 The solution is the sum of the pre-computed values of every node from the max heap from which we initiated a DFS.
 
 Complexity: O(NlogN)
-  

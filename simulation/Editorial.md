@@ -2,20 +2,30 @@
 
 ## Notation
 
-For $n\in\mathbb{N},\bold{p}\in\mathbb{R}_+^n/ \lVert \bold{p}\rVert_1=\sum_{i=1}^np_i=1,$ we will denote by $\mathcal{M}(m,n,\bold{p})$ the multinomial distribution with parameters.
-
-## Observation with $s=0 \ \& \ K\leq m:$
+For $n\in\mathbb{N},\bold{p}\in\mathbb{R}_+^n/ \lVert \bold{p}\rVert_1=\sum_{i=1}^np_i=1,$ we will denote by $\mathcal{M}(m,n,\bold{p})$ the multinomial distribution with parameters $m,n,\bold{p}$.
 
 Let $\bold{A}(n,m)=(\bold{A}(n,m)_1,\dots,\bold{A}(n,m)_{n})$ be the content of a simulation with an array of size $n$ and $m$ iterations.
-
-We can verify that $\bold{A}(n,m)\sim \mathcal{M}(m,n,\frac{1}{n}\mathbb{1}_n)$ where $\mathbb{1}_n =(1,\dots,1)$
-
-## DP Formula with $s=0 \ \& \ K\leq m:$
 
 Let $\bold{X}(n,m)$ be the maximum number for a simulation of size $n$ and $m$ iterations:   
 $$
 \bold{X}(n,m)=\max_{i\in\{1,\dots,n\}} \bold{A}(n,m)_{i}
 $$
+We can verify that the problem is equivalent to finding:
+$$
+\mathcal{P}(\bold{X}(n,m) \ge K)
+$$
+If $K>m,$ it is trivial that this probabillity is $0.$
+
+Otherwise, we will solve the problem using the law of Total Probability and Dynamic Programming. 
+
+## Observation with $K\leq m:$
+
+We can verify that $\bold{A}(n,m)\sim \mathcal{M}(m,n,\frac{1}{n}\mathbb{1}_n)$ where $\mathbb{1}_n =(1,\dots,1)$ is the vectors of ones.
+
+This observation is the key to finding the formula.
+
+## DP Formula with $K\leq m:$
+
 We have:
 $$
 \begin{align}
@@ -37,12 +47,23 @@ $$
 ## Conclusion
 
 - If $K>m,$ the probability is trivially $0$ 
-- For $s=0,$ the probability is then $p_{n,m}$
-- For $s>0,$ Let $A_1,\dots,A_s$ be the known numbers
-  - If $\max A\ge K,$ the probability is trivially $1$
-  - Else, Let $n'=n-s,\quad m'=m-\sum_{i=1}^sA_i,$ the solution is: $p_{n',m'}$ 
+- The probability is then $p_{n,m}$
+
+## Remarks
+
+To avoid floating point errors, It is best to calculate this formula for the $(n,m)$ iteration as:
+
+```c++
+p[n][m] = 1;
+long double alpha=static_cast<long double>(n-1)/n;
+for(int j=0;j<K;j++)
+    p[n][m]-=nCr[m][j]*std::pow(n-1,-j)*std::pow(alpha,m)*(1-p[n-1][m-j])
+```
+
+where the type of ``nCr[n][m]`` is ``long doublel``
 
 ## Complexity
+
 
 $$
 \mathcal{O}\left(nmK\right)

@@ -1,8 +1,5 @@
 # To Do list:
 
-## Rami's notes:
-- I proposed two probability problems: **Simulation** and **1D Monopoly**, and I have the solution of each one. We will only choose the best of the two.
-
 ## Problems Status
 
 ### MAD:
@@ -48,13 +45,13 @@
 - [x] Testing the $6$ solutions on test cases
 
 
-### Exam (REJECTED):
+### Exam:
 - [x] Problem Statement: **Oussama**
 - [x] Problem Solution: **Oussama**
 - [ ] Solution's correctness Proof:
 - [ ] Generating test cases
 
-### 1D Monopoly:
+### 1D Monopoly (REJECTED):
 
 - [x] Problem Statement: **Rami**
 - [x] Problem Solution: **Rami,** $\mathcal{O}(nM)$
@@ -74,7 +71,7 @@
 ### Two Shortest Paths:
 - [x] Problem Statement: **Yessine**
 - [X] Problem Solution: **Yessine, ** $\mathcal{O}(1)$
-- [ ] Solution's correctness Proof:
+- [x] Solution's correctness Proof: **Rami**
 - [ ] Generating test cases:
 
 ### Groups of permutations:
@@ -90,7 +87,7 @@
 ### Journey Through Time:
 
 - [x] Problem Statement: **Oussama**
-- [x] Problem Solution: **Oussama**
+- [x] Problem Solution: **Oussama,** $\mathcal{O}(n\log n)$
 - [x] Solution's correctness Proof: **Oussama**
 - [x] Generating test cases:
 - [x] Testing the solutions on test cases
@@ -105,15 +102,15 @@
 
 ### Game of Cards:
 
-- [ ] Problem Statement
-- [ ] Problem Solution
-- [ ] Solution's correctness Proof:
+- [x] Problem Statement: **Oussama**
+- [x] Problem Solution: **Rami**
+- [x] Solution's correctness Proof: **Rami**
 - [ ] Generating test cases:
 - [ ] Testing the solutions on test cases
 
-### Problem 800:
+### 800:
 
-- [ ] Problem Statement
+- [ ] Problem Statement: **Oussama**
 - [ ] Problem Solution
 - [ ] Solution's correctness Proof:
 - [ ] Generating test cases:
