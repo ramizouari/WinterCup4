@@ -1,4 +1,4 @@
-You are given a rectangle of dimensions $N$*$M$ composed of $1$*$1$ squares.
+You are given a rectangle of dimensions $N$*$M$ composed of $1\times 1$ squares.
 Your job is to count the number of squares inside that rectangle.
 The squares we are talking about can have any side length.
 For example the number of squares inside a $2$*$3$ rectangle is $8$:

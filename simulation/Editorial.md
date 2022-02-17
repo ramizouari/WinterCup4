@@ -48,6 +48,7 @@ $$
 
 - If $K>m,$ the probability is trivially $0$ 
 - The probability is then $p_{n,m}$
+- 
 
 ## Remarks
 
