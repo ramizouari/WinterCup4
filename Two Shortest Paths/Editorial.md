@@ -1,8 +1,8 @@
 ## Greedy Solution
 
-The solution is to find the longest possible commun path between **Rami** and **Yessine** between possible pair of paths that don't go backward.
+The solution is to find the longest possible common path between **Rami** and **Yessine** between possible pair of paths that don't go backward.
 
-1. We will set the costs of the cells on this commun path to $1,\dots,L$ where $L$ is its length
+1. We will set the costs of the cells on this common path to $1,\dots,L$ where $L$ is its length
 
 2. We will set the costs on the remaining cells of the pair of paths with the smallest possible remaining distinct values
 3. We will set the costs of the remaining cells freely
