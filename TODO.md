@@ -51,14 +51,6 @@
 - [ ] Solution's correctness Proof:
 - [ ] Generating test cases
 
-### 1D Monopoly (REJECTED):
-
-- [x] Problem Statement: **Rami**
-- [x] Problem Solution: **Rami,** $\mathcal{O}(nM)$
-- [x] Solution's correctness Proof: **Rami**
-- [x] Generating test cases
-- [x] Comparing Solution with a Monte Carlo Experience on test cases
-
 ### Simulation:
 
 - [x] Problem Statement: **Rami**
@@ -94,8 +86,8 @@
 
 ### Number of Squares:
 
-- [ ] Problem Statement
-- [ ] Problem Solution
+- [x] Problem Statement: **Oussama**
+- [x] Problem Solution: **Oussama**
 - [ ] Solution's correctness Proof:
 - [ ] Generating test cases:
 - [ ] Testing the solutions on test cases
@@ -110,8 +102,25 @@
 
 ### 800:
 
-- [ ] Problem Statement: **Oussama**
-- [ ] Problem Solution
+- [x] Problem Statement: **Oussama**
+- [x] Problem Solution: **Yessine,** $\mathcal{O}(nm)$
+- [x] Solution's correctness Proof: **Oussama**
+- [ ] Generating test cases:
+- [ ] Testing the solutions on test cases
+
+### co-Sortable Strings:
+
+- [x] Problem Statement: **Rami**
+- [x] Problem Solution: 
+  - [x] co-Sortable Components: **Rami,** $\mathcal{O}(q\log n+n)$
+  - [x] Prefix Sums: **Yessine,** $\mathcal{O}(n+q)$
 - [ ] Solution's correctness Proof:
 - [ ] Generating test cases:
 - [ ] Testing the solutions on test cases
+
+### Non-Increasing Dilemma:
+
+- [x] Problem Statement: **Yessine**
+- [x] Problem Solution: **Yessine, ** $\mathcal{O}(1)$
+- [x] Solution's correctness Proof: **Rami**
+- [ ] Generating test cases:
