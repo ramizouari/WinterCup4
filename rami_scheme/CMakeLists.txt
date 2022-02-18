@@ -4,11 +4,6 @@ project(WinterCup4)
 
 #Put this in your CMakeLists.txt file (change any options from OFF to ON if you want):
 
-
-
-include_directories("C:/local/boost_1_78_0")
-find_package(Boost)
-
 set(CMAKE_CXX_STANDARD 20)
 
 
@@ -37,9 +32,3 @@ add_executable(RamiSchemeExhaustiveGenerator linear_algebra.h modular_arithmetic
 
 add_executable(RamiSchemeGenerator linear_algebra.h modular_arithmetic.h number_theory.h
 ring_extension.h polynomial.h generator.cpp )
-
-target_include_directories(RamiSchemeMatrix PUBLIC "C:/local/boost_1_78_0/boost")
-target_include_directories(RamiSchemeRingExtension PUBLIC "C:/local/boost_1_78_0/boost")
-target_include_directories(RamiSchemePatternMatching PUBLIC "C:/local/boost_1_78_0/boost")
-target_include_directories(RamiSchemeExhaustiveGenerator PUBLIC "C:/local/boost_1_78_0/boost")
-
