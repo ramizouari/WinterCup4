@@ -8,7 +8,7 @@ As this situation is a little bit strange, **Yessine** called **Oussama** to che
 
 Now, **Yessine** knows very well that this may take some time, so he invented a little challenge with **Rami** that will kill their time:
 
-1. First of all, he created two **alphabetic** strings  $A$ and $B$ of the same length $L$.
+1. First of all, he created two **alphabetic** strings $A$ and $B$ of the same length $L$ and consisting only having only **lowercase** characters:
 2. Then, for two substring $A[l\dots r],B[l\dots r]$ of $A$ and $B$ respectively, he called them **co-sortable** if they can be simultaneously sorted using the following steps:
    - Choose $i\in\{l,\dots ,r\}$ and swap $A[i]$ and $B[i].$
    - Repeat the rule above as many times as you want.
