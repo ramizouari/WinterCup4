@@ -5,4 +5,4 @@ Second, let's remark that if the last row contains only the character C, then we
 Thus the solution is really simple: You just need to check that the last row contains only the character C.
 
 There is one edge case when the number of columns is 1 , in this case you need to check if grid already contains the character C only.
-If not, then we cannot change the grid and the answer therefore is NO 
+If not, then we cannot change the grid and the answer therefore is NO.

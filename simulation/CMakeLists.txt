@@ -10,7 +10,8 @@ find_package(Boost)
 
 set(CMAKE_CXX_STANDARD 20)
    
-add_executable(SimulationSolution solution.cpp "modular_arithmetic.h")
-add_executable(SimulationSolutionDP solution_dp.cpp "modular_arithmetic.h")
-add_executable(SimulationSolutionBoost solution_boost.cpp "modular_arithmetic.h")
-add_executable(SimulationSolutionMonteCarlo solution_monte_carlo.cpp "modular_arithmetic.h")
+add_executable(Simulation solution.cpp "modular_arithmetic.h")
+add_executable(SimulationDP solution_dp.cpp "modular_arithmetic.h")
+add_executable(SimulationBoost solution_boost.cpp "modular_arithmetic.h")
+add_executable(SimulationMonteCarlo solution_monte_carlo.cpp "modular_arithmetic.h")
+add_executable(SimulationGenerator generator.cpp "modular_arithmetic.h")
