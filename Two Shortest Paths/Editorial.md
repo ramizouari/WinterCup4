@@ -15,12 +15,10 @@ In the section below, we will prove that this solution is correct.
 Let $E$ be the set of grids that will be accessed by **Rami**, and $F$ be the set of grids that will be accessed by **Yessine**
 
 - Let $H=E\cap F$ be the intersection of the two paths.
-
 - Let $\mathcal{C}(a)$ be the cost of a cell $a,$ and $\mathcal{C}(X)=\sum_{x\in X} \mathcal{C}(x)$ the cost of a subset $X$ of cells
-
 - Let $\lvert X \rvert $ be the number of elements (cardinality) of a set $X.$
-
 - Let $\mathcal{C}_1$ be the cost of rami's trajectory, and $\mathcal{C}_2$ be the cost of Yessine's trajectory
+- We will denote by $X\setminus Y$ the set difference between $X$  and $Y$ 
 
 ## Main Observation
 

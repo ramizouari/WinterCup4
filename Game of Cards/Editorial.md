@@ -7,7 +7,7 @@
 
 We can note that each player can't divide by $p$ more than $f(X,p)$ times, where $X\in\{A,B\}$ is its respective initial array.
 
-So, The optimal strategy for each player is to iteratively choose a prime number $p \leq L$ which is the least present on the opponent's array: 
+So, The optimal strategy for each player is to iteratively choose the same prime number $p \leq L$ which is the least present on the opponent's array: 
 
 1. Rami will choose a prime number which minimises $f(B,p)$ for prime $p\leq L$ 
 2. Yessine will choose a prime number which minimises $f(A,p)$ for prime $p\leq L$

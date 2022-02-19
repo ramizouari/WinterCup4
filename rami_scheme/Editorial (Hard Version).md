@@ -13,7 +13,11 @@ For this problem, the calculation of the period can be easier when knowing the e
 
 We will denote by $\mathbb{F}_p=\mathbb{Z}/p\mathbb{Z}$ the cyclic field with $p$ elements.
 
-Let $A=\begin{pmatrix}0&1 \\ b &a\end{pmatrix},$ and $B=A-I_2$ where $I_2$ is the $2\times 2$ identity matrix
+- Let $A=\begin{pmatrix}0&1 \\ b &a\end{pmatrix},$ and $B=A-I_2$ where $I_2$ is the $2\times 2$ identity matrix
+
+- Let $\omega(n)$ be the number of distinct prime factors of an integer $n$
+
+- Let $\Omega(n)$ be the number of prime factors of an integer $n,$ counting multiplicities  
 
 ## Observations:
 
@@ -25,10 +29,12 @@ Let $A=\begin{pmatrix}0&1 \\ b &a\end{pmatrix},$ and $B=A-I_2$ where $I_2$ is th
   $$
   \boxed{V_n=\sum_{k=0}^nU_k=\left(\sum_{k=0}^nkA^k\right)U_0}
   $$
+  
+- 
 
 The problem is thus reduced to the calculation of: 
 $$
-S_n=\sum_{k=0}^nkA^k
+\boxed{S_n=\sum_{k=0}^nkA^k}
 $$
 
 
@@ -36,7 +42,7 @@ $$
 
 The sequence $(v_n)_{n\in\mathbb{N}}$ is always eventually periodic, but we need to know a choice of offset from which the sequence will be periodic.
 
-The answer is we can always take $N=1.$ The proof is case specific:
+The answer is we can always take $K=1.$ The proof is case specific:
 
 1. If $a=b = 0,$ then $v_n=v_1\ \forall n\ge 1$
 
@@ -50,15 +56,15 @@ The answer is we can always take $N=1.$ The proof is case specific:
 
    Therefore, $(V_n)$ is periodic, so necessarily, $(v_n)$ must be periodic.
 
-   From which we can conclude that $N=0$
+   From which we can conclude that $K=0$
 
-As for each case $N\in\{0,1\},$ we can safely choose $1$ as an offset   
+As for each case $K\in\{0,1\},$ we can safely choose $1$ as an offset   
 
 ## Calculation of $(v_n)_{n\in\mathbb{N}}$
 
 We will consider many cases:
 
-1.  If $p\in\{2,3\},$ then, we may prove that $T=72$ is always a multiple of the period, So we may calculate the first $T+N$ terms of the sequence, from which we can deduce all the others
+1.  If $p\in\{2,3\},$ then, we may prove that $T=72$ is always an eventual period, So we may calculate the first $T+K$ terms of the sequence, from which we can deduce all the others.
 
 2. Otherwise, if $B$ is invertible, then:
    $$
@@ -94,7 +100,7 @@ Now as we know the initial guess $R_0$ of $R.$ We can choose $m$ random points $
 
 Now we iterate over all divisors of $R_0,$ and we find the smallest divisor $R'$ such that:
 $$
- \boxed{\forall k\in\{1,\dots,m\},\quad v_{t_i+R'}=v_{R'}}
+\boxed{\forall k\in\{1,\dots,m\},\quad v_{t_i+R'}=v_{R'}}
 $$
   It is almost surely that:
 $$
@@ -103,12 +109,19 @@ $$
 
 ## Complexity
 
+Let $N_{*}=\max_{i\in\{1,\dots,s\}} n_i, $ and $N$ is the largest term used by the periodicity check.
+
+The complexity of this solution on the worst case is:
 $$
-\mathcal{O}\left(s\log\left(\max_{i\in\{1,\dots,s\}}(n_{i})\right)+md_0(T)\log N+ \sqrt p\right)
+\mathcal{O}\left(s\log N_*+m\omega(R_0)\Omega(R_0)\log N+ \sqrt p\right)=\mathcal{O}\left(s\log N_*+m\frac{\log N(\log R_0 )^2}{\log \log R_0}+ \sqrt p\right)
 $$
 
-Where $d_0$ is the count divisors function, and $T$ the initial guess of the period. 
+Where $R_0$ the initial guess of the fundamental period. Note that $R_0$ must be itself a period of $(v_n)_{n\in\mathbb{N}}$ . 
 
+As the behavior of prime numbers is statistically random, the complexity of this solution may be closer to the average case which is:
+$$
+\mathcal{O}\left(s\log N_*+m\omega(R_0)\Omega(R_0)\log N+ \sqrt p\right)=\mathcal{O}\left(s\log N_*+m\log N (\log \log R_0)^2+ \sqrt p\right)
+$$
 
 
 ## Notes
@@ -124,6 +137,12 @@ p(p^2-1) &\text{otherwise}
 
 There is also a proof that $(v_n)_{n\in\mathbb{N}}$ satisfies a linear homogeneous recurrence relation of order $5.$ Thus, instead of comparing $m$ random points, we can only compare the first $5$ values, and this solution is deterministic. Its complexity is:
 $$
-\mathcal{O}\left(s\log\left(\max_{i\in\{1,\dots,s\}}(n_{i})\right)+d_0(T)\log N+ \sqrt p\right)
+\mathcal{O}\left(s\log N_*+\omega(R_0)\cdot\Omega(R_0)\log N+ \sqrt p\right)=\mathcal{O}\left(s \log N_*+\frac{\log N(\log R_0 )^2}{\log \log R_0}+ \sqrt p\right)
 $$
+The average case is then:
+$$
+\mathcal{O}\left(s\log N_*+m\omega(R_0)\Omega(R_0)\log N+ \sqrt p\right)=\mathcal{O}\left(s\log N_*+\log N (\log \log R_0)^2+ \sqrt p\right)
+$$
+
+
 All solutions with all proofs are described formally on the PDF. 
