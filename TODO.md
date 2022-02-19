@@ -6,8 +6,8 @@
 
 - [x] Problem Statement
 - [x] Problem Solution:
-  - [x] Off-line: **Yessine,** $\mathcal{O}(q\log n)$
-  - [x] On-line: **Rami,** $\mathcal{O}\left(q(\log n)^2\right)$
+  - [x] Off-line: **Yessine,** $\mathcal{O}(n+q\log n)$
+  - [x] On-line: **Rami,** $\mathcal{O}\left((n+q)(\log n)^2\right)$
 - [x] Solution's correctness Proof: **Yessine**
 - [x] Generating test cases
 - [x] Testing the $2$ solutions on test cases
