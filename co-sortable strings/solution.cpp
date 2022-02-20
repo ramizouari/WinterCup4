@@ -32,7 +32,7 @@ int main()
 	std::cin >> A >> B;
 	for (int i = 0; i < L; i++)
 	{
-		auto [s1, s2] = std::minmax(A[i], B[i]);
+		auto [s1, s2] = std::minmax({ A[i], B[i] });
 		A[i] = s1;
 		B[i] = s2;
 	}
