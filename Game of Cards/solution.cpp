@@ -4,12 +4,12 @@
 #include "number_theory.h"
 #include <algorithm>
 using container = std::map<int, int>;
-constexpr int L_max = 1e6;
+constexpr int L_max = 1e4,A_max=1e6;
 constexpr int N = 1e6;
 
 int main()
 {
-	factoriser F(L_max);
+	factoriser F(A_max);
 	int L;
 	int n;
 	std::cin >> n >> L;
@@ -19,6 +19,13 @@ int main()
 	for (auto& b : B)
 		std::cin >> b;
 	container R, Y;
+	for (auto p : F.prime_list())
+	{
+		if (p > L)
+			break;
+		R[p] = 0;
+		Y[p] = 0;
+	}
 	for (auto a : A) for (auto [p, m] : F.prime_decomposition(a))
 		if (p > L)
 			break;
@@ -27,10 +34,6 @@ int main()
 		if (p > L)
 			break;
 		else Y[p] += m;
-	for (auto [p, _] : R) if (!Y.count(p))
-		Y[p] = 0;
-	for (auto [p, _] : Y) if (!R.count(p))
-		R[p] = 0;
 	 std::cout << (std::min_element(R.begin(), R.end(), [](const auto& P, const auto& Q)
 		{
 			return P.second < Q.second;

@@ -5,7 +5,6 @@
 #include <cmath>
 #include <vector>
 using container = std::map<int, int>;
-constexpr int L = 1e6;
 constexpr int N = 1e6;
 
 
@@ -42,6 +41,11 @@ int main()
 	for (auto& b : B)
 		std::cin >> b;
 	container R, Y;
+	for (int i = 2; i <= L; i++) if (smallest_divisor(i) == i)
+	{
+		R[i] = 0;
+		Y[i] = 0;
+	}
 	for (auto a : A) for (auto [p, m] : factorise(a))
 		if (p > L)
 			break;
@@ -50,10 +54,6 @@ int main()
 		if (p > L)
 			break;
 		else Y[p] += m;
-	for (auto [p, _] : R) if (!Y.count(p))
-		Y[p] = 0;
-	for (auto [p, _] : Y) if (!R.count(p))
-		R[p] = 0;
 	std::cout << (std::min_element(R.begin(), R.end(), [](const auto& P, const auto& Q)
 		{
 			return P.second < Q.second;
