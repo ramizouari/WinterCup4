@@ -12,9 +12,9 @@ A co-sortable component is a quadruplet $(l,r,a,b)$ such that $a_{[l\dots r]},b_
 
 ## $\mathtt{minmax}$ reduction:
 
-Let $x,y,x',y'$ two characters. We have the following:
+Let $x,y,x',y'$ four characters. We have the following:
 $$
-xy \text{ and } x'y' \text{ are co-sortable} \iff \begin{cases} \min(x,y) \leq \min(x',y') \\ \max(x,y)\leq \max(x',y')\end{cases}
+xx' \text{ and } yy' \text{ are co-sortable} \iff \begin{cases} \min(x,y) \leq \min(x',y') \\ \max(x,y)\leq \max(x',y')\end{cases}
 $$
 To prove it, we will suppose without a loss of generality, that $x\leq y$
 
@@ -22,7 +22,7 @@ To prove it, we will suppose without a loss of generality, that $x\leq y$
 
 2. Otherwise, $x'> y'.$ 
 
-   1. Suppose that $xy$ and $x'y'$ are co-sortable, we have:
+   1. Suppose that $xx'$ and $yy'$ are co-sortable, we have:
 
       $\begin{cases}x \leq x' \\ y\leq y' \end{cases}$   or $\begin{cases}x \leq y' \\ y\leq x' \end{cases} .$  We will prove that the first implies the second:
       $$
