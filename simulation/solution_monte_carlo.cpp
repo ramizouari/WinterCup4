@@ -8,12 +8,12 @@
 */
 
 using real = long double;
-constexpr int M_max = 4000;
-constexpr int L=10000;
+constexpr int M_max = 1000;
+constexpr int L=100000;
 int main()
 {
-	int n, m, K, s;
-	std::cin >> n >> m >> K >> s;
+	int n, m, K, s=0;
+	std::cin >> n >> m >> K;
 	std::vector<int> A(s);
 	for (auto& a : A)
 		std::cin >> a;

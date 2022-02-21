@@ -10,4 +10,4 @@ include_directories("C:/local/boost_1_78_0")
 find_package(Boost)
 
 set(CMAKE_CXX_STANDARD 20)
-add_executable(PasswordGenerator generator.cpp)
+add_executable(PasswordDP "dp.cpp")

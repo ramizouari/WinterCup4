@@ -146,3 +146,9 @@ $$
 
 
 All solutions with all proofs are described formally on the PDF. 
+
+## Bonus
+
+1. Solve the problem when $p$ is a squarefree number.
+2. Solve the problem when $p$ is a prime power.
+3. Solve the problem when $p$ is a composite number. Try to keep the same overall complexity within a $\log \log p$ factor

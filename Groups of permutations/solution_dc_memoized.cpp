@@ -75,7 +75,6 @@ bool permutation_separable(const std::deque<int>& A)
 
 int main()
 {
-	freopen("test52.in", "r", stdin);
 	int n;
 	std::cin >> n;
 	std::deque<int> A(n);

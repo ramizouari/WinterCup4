@@ -22,4 +22,9 @@ To calculate that, for each iteration **$i$** we simply add **$dp[sum[i]]$** to 
 
 Time complexity: **$O(n)$** 
 
-**Bonus** : Solve this problem with any prime number $p < 10^5$ 
+**Bonus** : 
+
+1. Solve this problem with any prime number $p \leq  10^5$ 
+
+2. Solve this problem with any number $p\leq 10^5$ co-prime with $10.$
+3. Solve this problem for any integer $p\leq 10^5$ 

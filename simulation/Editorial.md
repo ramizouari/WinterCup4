@@ -48,7 +48,6 @@ $$
 
 - If $K>m,$ the probability is trivially $0$ 
 - The probability is then $p_{n,m}$
-- 
 
 ## Remarks
 
@@ -70,3 +69,8 @@ $$
 \mathcal{O}\left(nmK\right)
 $$
 
+## Bonus:
+1. Think about a heuristic for $K$ that reduces the complexity to $\mathcal{O}\left(nm(\frac{m}{n}+\log m)  \right)=\mathcal{O}\left(m^2+\frac{m}{n}\log m\right)$
+2. Solve the problem when the choice is not uniform: For each $i\in\{1,\dots n\}$ the probability of choosing $i$ is $p_i$
+with $\lVert \bold{p} \rVert_1=\sum_{i=1}^np_i=1$
+3. Think about a Monte Carlo experience that can approximate the results.

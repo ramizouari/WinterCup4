@@ -88,7 +88,7 @@
 
 - [x] Problem Statement: **Oussama**
 - [x] Problem Solution: **Oussama**
-- [ ] Solution's correctness Proof:
+- [x] Solution's correctness Proof:
 - [ ] Generating test cases
 - [ ] Testing the solutions on test cases
 
@@ -97,8 +97,8 @@
 - [x] Problem Statement: **Oussama**
 - [x] Problem Solution: **Rami**
 - [x] Solution's correctness Proof: **Rami**
-- [ ] Generating test cases:
-- [ ] Testing the solutions on test cases
+- [x] Generating test cases:
+- [x] Testing the solutions on test cases
 
 ### 800:
 
@@ -115,8 +115,8 @@
   - [x] co-Sortable Components: **Rami,** $\mathcal{O}(q\log \lvert \Sigma \rvert+n)$ where $\Sigma$ is the string's alphabet
   - [x] Prefix Sums: **Yessine,** $\mathcal{O}(n+q)$
 - [ ] Solution's correctness Proof:
-- [ ] Generating test cases:
-- [ ] Testing the solutions on test cases
+- [x] Generating test cases:
+- [x] Testing the solutions on test cases
 
 ### Non-Increasing Dilemma:
 
