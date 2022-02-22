@@ -1,6 +1,119 @@
 #include <iostream>
 
 using integer = std::int64_t;
+
+class d_cyclic
+{
+    integer n;
+public:
+    inline static integer m = 1;
+    inline static bool assume_prime = true;
+    d_cyclic(integer o = 0) :n((o + m) % m) {}
+    bool operator==(integer O) const
+    {
+        return n == (m + O) % m;
+    }
+
+    bool operator!=(integer O) const
+    {
+        return n != (m + O) % m;
+    }
+
+    bool operator==(d_cyclic O) const
+    {
+        return n == O.n;
+    }
+
+    bool operator!=(d_cyclic O) const
+    {
+        return n != O.n;
+    }
+
+    auto& operator+=(const d_cyclic& O)
+    {
+        n = (n + O.n) % m;
+        return *this;
+    }
+    auto& operator-=(const d_cyclic& O)
+    {
+        n = (n + m - O.n) % m;
+        return *this;
+    }
+
+    auto& operator*=(const d_cyclic& O)
+    {
+        n = (n * O.n) % m;
+        return *this;
+    }
+
+    auto operator*(const d_cyclic& O) const
+    {
+        auto w = *this;
+        return w *= O;
+    }
+
+    auto operator+(const d_cyclic& O) const
+    {
+        auto w = *this;
+        return w += O;
+    }
+
+    d_cyclic operator-() const
+    {
+        return d_cyclic(m - n);
+    }
+
+    auto operator-(const d_cyclic& O) const
+    {
+        auto w = *this;
+        return w -= O;
+    }
+
+    auto& operator++()
+    {
+        return *this += 1;
+    }
+
+    auto& operator--()
+    {
+        return *this -= 1;
+    }
+
+    auto operator++(int)
+    {
+        d_cyclic r(n);
+        *this += 1;
+        return r;
+    }
+
+    auto operator--(int)
+    {
+        d_cyclic r(n);
+        *this -= 1;
+        return r;
+    }
+
+    explicit operator integer& ()
+    {
+        return n;
+    }
+
+    explicit operator const integer& () const
+    {
+        return n;
+    }
+};
+
+auto operator*(integer k, d_cyclic O)
+{
+    return O *= k;
+}
+
+auto operator+(integer k, d_cyclic s)
+{
+    return s + k;
+}
+
 template<integer mod>
 class cyclic
 {
@@ -144,7 +257,6 @@ auto f(int r,char c)
 }
 
 
-constexpr int alpha = 20;
 
 int main()
 {
@@ -157,18 +269,41 @@ int main()
     {
         int n;
         std::cin >> n;
-        int m1 = 50,m2=7;
+        int m1 = 5,m2=n;
+        int alpha1 = 0, alpha2 = 0;
+        while (m2 % 5)
+        {
+            m1 *= 5;
+            m2 /= 5;
+            alpha1++;
+        }
+        while (m1 % 2)
+        {
+            m1 *= 2;
+            m2 /= 2;
+            alpha2++;
+        }
+        int alpha = std::max(alpha1, alpha2);
         std::vector<integer> d(11,0);
         std::string S;
         std::cin >> S; 
         std::reverse(S.begin(), S.end());
-        integer t = 1,u=0;
-        std::vector<int> I;
         int C1 = 0;
-        for (int i = 0; i < n; i++) for (int j = i; j <std::min(n,alpha); j++)
+        d_cyclic::m = n;
+        for (int i = 0; i < n; i++) 
         {
-
+            d_cyclic w = 1,r=0;
+            for (int t = 0; t+i < std::min(n, i+alpha); t++)
+            {
+                r += (S[t+i] - '0') * w;
+                if (r == 0)
+                    C1++;
+                w *= 10;
+            }
         }
+
+        integer t = 1, u = 0;
+        std::vector<int> I;
         for (integer k = 0; k < std::min(alpha,n); k++)
         {
             u += (S[k] - '0') * t;
