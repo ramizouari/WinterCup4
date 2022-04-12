@@ -1,0 +1,14 @@
+Problem				Tried		Solved		First To Solve (time)
+A- Group of Permutations	41		5		32   (NoGithub)			
+B- Simulation			3               0		---
+C- Co-sortable Strings		10		2		129  (RNM)
+D- Decrypting the Password	10		3		153  (NoGithub)
+E- Exam				9		7		141  (ChaRaRa)
+F- 800				37		25		20   (NoGithub)	
+G- Game of Cards		9		4		119  (NoGithub)		
+H- Rami's Scheme		0		0		---
+I- Non-Increasing Dilemma	31		18		31   (Yajoura)
+J- Journey Through Time		3		2		260  (Runtime Terror)
+K- Count the squares		46		39		7    (eBsilong)				
+L- Two Shortest Paths		29		23		24   (eBsilong)				
+M- Mean Absolute Deviation	5		0		---
